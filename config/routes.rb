@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'casa#index'
-  get 'json', to: 'casa#json'
+  get 'search', to: 'casa#search'
   scope :admin do
     resources :words
     resources :articles
