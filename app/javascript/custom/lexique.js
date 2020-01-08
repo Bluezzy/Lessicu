@@ -1,6 +1,9 @@
 import $ from 'jquery'
 
+
+
 $(document).ready(function () {
+    // clicking on a letter displays query results
     $('.letter').click(function (e) {
         e.preventDefault();
         var query = $(this).text();
