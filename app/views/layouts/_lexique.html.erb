@@ -1,5 +1,9 @@
-<% alphabet.each do |letter| %>
-    <%= link_to letter, '#', class: 'letter' %>
-<% end %>
-<br></br>
+<ul class="alphabet">
+    <% alphabet.each do |letter| %>
+        <li>
+            <%= link_to letter, '#', class: 'letter' %>
+        </li>
+    <% end %>
+</ul>
+
 <div id='query_results'></div>

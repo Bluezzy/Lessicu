@@ -1,0 +1,11 @@
+.alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60%;
+    
+}
+
+.alphabet .letter {
+    flex-shrink: 1;
+}
