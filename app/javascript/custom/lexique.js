@@ -1,12 +1,10 @@
 import $ from 'jquery'
 
-
-
 $(document).ready(function () {
     // clicking on a letter displays query results
     $('.letter').click(function (e) {
         e.preventDefault();
-        var query = $(this).text();
+        var query = $(this).children().text();
         $.ajax({
             url: "/search?query=" + query,
             method: "get",
@@ -14,7 +12,6 @@ $(document).ready(function () {
             emptyQueryResults();
             displayData(data);
         }).fail(function (data) {
-            debugger;
             alert('something went wront with the request');
         });
     });
