@@ -1,10 +1,10 @@
-<h1>Ajouter au lexique</h1>
-<%= form_with model: [:admin, @word], url: words_path do |f| %>
+
+<%= form_with model: [:admin, @word], url: word_path(@word.id), method: :put  do |f| %>
     <%= f.label :name, "mot ou expression" %>
-    <%= f.text_field :name, :required => 'required' %>
+    <%= f.text_field :name,  :required => 'required' %>
     <%= f.label :translation, "traduction" %>
     <%= f.text_field :translation, :required => 'required' %>
     <%= f.label :category, "categorie" %>
     <%= f.select :category, options_for_select(['pezze', 'tatiche', 'strategie', 'regule', 'mat', 'autre']) %>
-    <%= f.submit "Ajouter" %>
+    <%= f.submit "Modifier" %>
 <% end %>

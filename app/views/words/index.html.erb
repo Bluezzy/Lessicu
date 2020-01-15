@@ -1,3 +1,4 @@
+<%= render 'layouts/flash' %>
 <table>
     <tr>
         <th>Name</th>
@@ -9,7 +10,7 @@
             <td><%= word.name %></td>
             <td><%= word.translation %></td>
             <td><%= word.category || "no category" %>
-            <a href="#">Modifier</a>
+            <a href="/admin/words/<%=word.id%>/edit">Modifier</a>
             <a href="#">Supprimer</a>
         </tr>
     <% end %>
