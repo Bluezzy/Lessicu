@@ -1,4 +1,5 @@
 <%= render 'layouts/flash' %>
+<%= render 'layouts/nav' %>
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
@@ -11,7 +12,7 @@
                 <td><%= word.name %></td>
                 <td><%= word.translation %></td>
                 <td><%= word.category || "no category" %>
-                <td><%= button_to 'Modifier', edit_word_path(word), :class => 'btn btn-warning btn-sm' %></td>
+                <td><%= link_to 'Modifier', edit_word_path(word), :class => 'btn btn-warning btn-sm' %></td>
                 <td><%= button_to 'Supprimer', word_path(word), 
                 method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
             </tr>
