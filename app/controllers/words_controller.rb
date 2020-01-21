@@ -23,13 +23,18 @@ class WordsController < ApplicationController
     def create
         @word = Word.new(params.require(:word).permit(:name, :translation, :category))
         if @word.save
-            puts "it worked"
+            redirect_to words_path, flash: { success: "Ajouté avec succès" }
         else
-            puts "it didn't work"
+            redirect_to words_path, flash: { error: "Une erreur est survenue" }
         end
     end
 
     def new
         @word = Word.new
+    end
+
+    def destroy
+        Word.destroy(params[:id])
+        redirect_to words_path, flash: { success: "Supprimé avec succès" }
     end
 end

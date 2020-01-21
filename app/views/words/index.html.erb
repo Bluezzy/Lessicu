@@ -1,18 +1,23 @@
 <%= render 'layouts/flash' %>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Translation</th>
-        <th>Category</th>
-    </tr>
-    <% @words.each do |word| %>
+<div class="table-responsive">
+    <table class="table table-striped">
         <tr>
-            <td><%= word.name %></td>
-            <td><%= word.translation %></td>
-            <td><%= word.category || "no category" %>
-            <a href="/admin/words/<%=word.id%>/edit">Modifier</a>
-            <a href="#">Supprimer</a>
+            <th>PAROLLE</th>
+            <th>TRADUZZIONE</th>
+            <th>CATEGURIE</th>
         </tr>
-    <% end %>
-</table>
+        <% @words.each do |word| %>
+            <tr>
+                <td><%= word.name %></td>
+                <td><%= word.translation %></td>
+                <td><%= word.category || "no category" %>
+                <td><%= button_to 'Modifier', edit_word_path(word), :class => 'btn btn-warning btn-sm' %></td>
+                <td><%= button_to 'Supprimer', word_path(word), 
+                method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+<br></br>
+<%= link_to "Ajouter au lexique", new_word_path, :class => 'btn btn-primary active' %>
 
