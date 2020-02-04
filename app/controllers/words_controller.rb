@@ -1,4 +1,4 @@
-class WordsController < ApplicationController
+class WordsController < AdminController
     def index
         @words = Word.order(:category).order(:name)
     end
