@@ -1,18 +1,16 @@
 class WordsController < AdminController
+    before_filter :find_word, only: [:show, :edit, :update]
     def index
         @words = Word.order(:category).order(:name)
     end
 
     def show
-        @word = Word.find(params[:id])
     end
 
     def edit
-        @word = Word.find(params[:id])
     end
 
     def update
-        @word = Word.find(params[:id])
         if @word.update_attributes(params.require(:word).permit(:name, :translation, :category))
             redirect_to words_path, flash: { success: "Modifié avec succès" }
         else
@@ -36,5 +34,11 @@ class WordsController < AdminController
     def destroy
         Word.destroy(params[:id])
         redirect_to words_path, flash: { success: "Supprimé avec succès" }
+    end
+
+    protected
+
+    def find_word
+        @word = Word.find(params[:id])
     end
 end

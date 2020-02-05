@@ -1,0 +1,12 @@
+<%= render 'layouts/nav' %>
+<% @articles.each do |article| %>
+    <div class='article'>
+        <h1><%=article.title%></h1>
+        <p class='article_content'><%=article.content%></p>
+        <div class='details'>
+            <p><%=article.created_at%></p>
+            <p><%=article.author%></p>
+        </div>
+    </div>
+    <div class='voir'></div>
+<% end %>
