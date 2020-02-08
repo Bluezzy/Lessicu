@@ -1,12 +1,20 @@
 <ul class="alphabet">
     <% alphabet.each do |letter| %>
         <li class="letter">
-            <%= link_to letter, '#' %>
+            <%= link_to letter %>
         </li>
     <% end %>
     <li class="all">
-        <%= link_to "ALL", '#' %>
+        <%= link_to "ALL" %>
     </li>
 </ul>
 
-<div id='query_results'></div>
+<div id='query_results' class='table-responsive'>
+<table class='table table-striped'>
+    <tr>
+        <th>FRANÇAIS</th>
+        <th>CORSU</th>
+        <th>CATEGURIA</th>
+    </tr>
+</table>
+</div>

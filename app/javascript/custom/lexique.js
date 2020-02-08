@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
     // by default, the entire glossary is displayed
     displayAllGlossary();
 
@@ -21,17 +21,16 @@ $(document).ready(function () {
 function displayData(data) {
     for (var i = 0; i < data.length; i++) {
         var word = data[i];
-        $('#query_results').append(generateSpan(word));
-        $('#query_results').append('<br></br>');
+        $('#query_results table').append(generateTableRow(word));
     }
 }
 
-function generateSpan(word) {
-    return "<span>" + word.name + "</span><span>  " + word.translation + "</span>"
+function generateTableRow(word) {
+    return "<tr class='row_result'><td>" + word.name + "</td><td>  " + word.translation + "</td><td> " + word.category + "</td></tr>"
 }
 
 function emptyQueryResults() {
-    $('#query_results').empty();
+    $('.row_result').remove();
 }
 
 function displayAllGlossary() {

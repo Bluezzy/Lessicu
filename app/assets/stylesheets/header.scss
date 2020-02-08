@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    background-size: cover;
+    background-image: url('/assets/fond.jpg');
+    background-repeat: no-repeat;
+    background-position: 100%;
+    height: 75px;
+    padding-left: 60px;
+    padding-right: 60px;
+    justify-content: space-between;
+}
+
+header .logo {
+    min-width: 345px;
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    font-family: 'Optima';
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+}
+
+header .logo span {
+    margin-right: 10px;
+    white-space: no-wrap;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration-style: none;
+    color: white;
+    border-right: 1px solid white;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-family: 'BellGothic Black';
+    height: 30px;
+    vertical-align: middle;
+}
+
+header nav a:last-child {
+    border: none;
+}
+
+header nav a:hover {
+    text-decoration: none;
+    color: #00cc66;
+}
