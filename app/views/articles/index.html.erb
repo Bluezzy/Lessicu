@@ -1,1 +1,16 @@
-<%= render 'layouts/adminnav' %>
+<header>
+    <%= render 'layouts/logo' %>
+    <%= render 'layouts/adminnav' %>
+</header>
+
+<main>
+    <% @articles.each do |article| %>
+        <div class="article_info">
+            <%= image_tag("arrow.png") %>
+            <h1><%=article.title%></h1>
+            <p><%=article.content%></p>
+        </div>
+    <% end %>
+</main>
+
+<div></div>

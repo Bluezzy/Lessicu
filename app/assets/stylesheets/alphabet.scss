@@ -6,9 +6,22 @@
     border-top: 1px solid;
     border-bottom: 1px solid;
     border-color: gray;
-    margin: 0 auto;
+    margin: 25px 10px;
+    height: 48px;
 }
 
-.alphabet .letter {
+.alphabet li {
+    display: flex;
     flex-shrink: 1;
+    align-items: center;
+}
+
+.alphabet li a {
+    color: #003366;
+    text-decoration: none;
+    font-family: Optima
+}
+
+.alphabet li a:hover {
+    color: green;
 }

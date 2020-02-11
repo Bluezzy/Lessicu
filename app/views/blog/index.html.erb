@@ -1,4 +1,7 @@
-<%= render 'layouts/nav' %>
+<header>
+    <%= render 'layouts/logo' %>
+    <%= render 'layouts/nav' %>
+</header>
 <% @articles.each do |article| %>
     <div class='article'>
         <h1><%=article.title%></h1>

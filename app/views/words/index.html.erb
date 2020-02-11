@@ -1,10 +1,14 @@
-<% debugger %>
+<header>
+    <%= render 'layouts/logo' %>
+    <%= render 'layouts/adminnav' %>
+</header>
 <%= render 'layouts/flash' %>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-            <th>PAROLLE</th>
-            <th>TRADUZZIONE</th>
+            <th>FRANÇAIS</th>
+            <th>CORSU</th>
             <th>CATEGURIE</th>
         </tr>
         <% @words.each do |word| %>
