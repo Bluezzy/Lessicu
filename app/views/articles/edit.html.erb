@@ -1,0 +1,14 @@
+<%= tinymce_assets %>
+
+<%= form_with model: [:admin, @article], url: article_path(@article.id), method: :put  do |f| %>
+    <%= f.label :title, "titre" %>
+    <%= f.text_field :title,  :required => 'required' %>
+    <%= f.label :author, "auteur" %>
+    <%= f.text_field :author, :required => 'required' %>
+    <%= f.label :content, "contenu" %>
+    <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
+    <%= f.submit "Modifier" %>
+<% end %>
+</div>
+
+<%= tinymce %>

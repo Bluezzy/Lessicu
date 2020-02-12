@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 require('custom/lexique')
+require('tinymce-jquery')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
