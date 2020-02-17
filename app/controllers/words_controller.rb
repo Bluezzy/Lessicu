@@ -41,7 +41,7 @@ class WordsController < AdminController
     protected
 
     def word_params
-        params[:word][:theme_id] = Theme.find_by(name: params[:word][:theme]).id
+        params[:word][:theme_id] = Theme.get_id(params[:word][:theme])
         permitted = params.require(:word).permit(:name, :translation, :theme_id)
         permitted
     end

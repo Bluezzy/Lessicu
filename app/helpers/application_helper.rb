@@ -46,5 +46,9 @@ module ApplicationHelper
         end
         result
     end
+
+    def get_theme_id(theme_name)
+        Theme.find_by(name: theme_name).id
+    end
 end
 

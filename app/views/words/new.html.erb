@@ -5,6 +5,6 @@
     <%= f.label :translation, "traduction" %>
     <%= f.text_field :translation, :required => 'required' %>
     <%= f.label :theme, "categorie" %>
-    <%= f.select :theme, options_for_select(get_theme_names) %>
+    <%= f.select :theme, options_for_select(get_theme_names)) %>
     <%= f.submit "Ajouter" %>
 <% end %>

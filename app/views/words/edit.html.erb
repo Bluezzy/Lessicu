@@ -4,8 +4,8 @@
     <%= f.text_field :name,  :required => 'required' %>
     <%= f.label :translation, "traduction" %>
     <%= f.text_field :translation, :required => 'required' %>
-    <%= f.label :theme_id, "thème" %>
-    <%= f.select :theme_id, options_for_select(get_theme_names) %>
+    <%= f.label :theme, "thème" %>
+    <%= f.select :theme, options_for_select(get_theme_names) %>
     <%= f.submit "Modifier" %>
 <% end %>
 </div>
