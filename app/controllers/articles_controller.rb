@@ -22,7 +22,7 @@ class ArticlesController < AdminController
 
     def create
         @article = Article.new(params.require(:article).permit(:title, :content, :author, :category))
-        if @word.save
+        if @article.save
             redirect_to articles_path, flash: { success: "Ajouté avec succès" }
         else
             redirect_to articles_path, flash: { error: "Une erreur est survenue" }

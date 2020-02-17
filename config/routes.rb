@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     get "/", to: 'admin#index'
     resources :words
     resources :articles
+    resources :themes
   end
 end
