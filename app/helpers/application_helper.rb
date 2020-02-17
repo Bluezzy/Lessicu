@@ -37,5 +37,14 @@ module ApplicationHelper
     def format_year(year)
         year.to_s
     end
+
+    def get_theme_names
+        result = []
+        themes = Theme.all.to_a
+        0.upto(themes.length - 1) do |i|
+            result.push(themes[i].name)
+        end
+        result
+    end
 end
 
