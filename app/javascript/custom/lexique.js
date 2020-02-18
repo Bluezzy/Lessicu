@@ -1,21 +1,31 @@
 import $ from 'jquery'
 
+var currentData;
+
 $(document).on('turbolinks:load', function () {
+    var query = false;
     // by default, the entire glossary is displayed
-    displayAllGlossary();
+    displayAllGlossary(currentData);
 
     // clicking on a letter displays query results
     $('.letter').click(function (e) {
         e.preventDefault();
-        var query = $(this).children().text();
+        query = $(this).children().text();
         getQueryResults(query);
     });
 
     // clicking on "all" display the entire glossary
     $('.all').click(function (e) {
         e.preventDefault();
+        query = false;
         displayAllGlossary();
     });
+
+    $('.themes li a').click(function (e) {
+        e.preventDefault();
+        alert(query);
+        console.log(currentData);
+    })
 });
 
 function displayData(data) {
@@ -38,6 +48,7 @@ function displayAllGlossary() {
         url: "/search",
         method: "get",
     }).done(function (data) {
+        currentData = data;
         emptyQueryResults();
         displayData(data);
     });
@@ -48,6 +59,7 @@ function getQueryResults(query) {
         url: "/search?query=" + query,
         method: "get",
     }).done(function (data) {
+        currentData = data;
         emptyQueryResults();
         displayData(data);
     });
