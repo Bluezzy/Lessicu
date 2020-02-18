@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_214127) do
 
   create_table "themes", force: :cascade do |t|
     t.string "name"
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "words", force: :cascade do |t|

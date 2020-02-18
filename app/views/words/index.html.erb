@@ -9,7 +9,7 @@
         <tr>
             <th>FRANÇAIS</th>
             <th>CORSU</th>
-            <th>CATEGURIE</th>
+            <th><%= select_tag "CATEGURIE", options_for_select(get_theme_names_and_all) %></th>
         </tr>
         <% @words.each do |word| %>
             <tr>

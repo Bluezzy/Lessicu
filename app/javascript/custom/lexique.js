@@ -4,14 +4,15 @@ var currentData;
 
 $(document).on('turbolinks:load', function () {
     var query = false;
+    var themeFilterValue = 'all';
     // by default, the entire glossary is displayed
-    displayAllGlossary(currentData);
+    displayAllGlossary();
 
     // clicking on a letter displays query results
     $('.letter').click(function (e) {
         e.preventDefault();
         query = $(this).children().text();
-        getQueryResults(query);
+        getQueryResults(query, themeFilterValue);
     });
 
     // clicking on "all" display the entire glossary
@@ -21,11 +22,10 @@ $(document).on('turbolinks:load', function () {
         displayAllGlossary();
     });
 
-    $('.themes li a').click(function (e) {
-        e.preventDefault();
-        alert(query);
-        console.log(currentData);
-    })
+    $('select').on('change', function(e) {
+        themeFilterValue = this.value;
+        getQueryResults(query, themeFilterValue);
+      });
 });
 
 function displayData(data) {
@@ -36,7 +36,7 @@ function displayData(data) {
 }
 
 function generateTableRow(word) {
-    return "<tr class='row_result'><td>" + word.name + "</td><td>  " + word.translation + "</td><td> " + word.category + "</td></tr>"
+    return "<tr class='row_result'><td>" + word.name + "</td><td>  " + word.translation + "</td><td> " + getThemeName(word) + "</td></tr>"
 }
 
 function emptyQueryResults() {
@@ -54,13 +54,34 @@ function displayAllGlossary() {
     });
 }
 
-function getQueryResults(query) {
+function getQueryResults(query, themeFilterValue) {
     $.ajax({
-        url: "/search?query=" + query,
+        url: urlWithQuery(query),
         method: "get",
     }).done(function (data) {
-        currentData = data;
+        currentData = filterWithTheme(themeFilterValue, data);
         emptyQueryResults();
-        displayData(data);
+        displayData(currentData);
     });
+}
+
+function getThemeName(word) {
+    return gon.themes.reduce(function(accumulator, currentTheme) {
+        if (currentTheme.id === word.theme_id) {accumulator += currentTheme.name}
+        return accumulator;
+    }, '');
+}
+
+function filterWithTheme(themeFilterValue, data) {
+    if (themeFilterValue === 'all') { return data; }
+    return data.filter(function(word) {
+        return getThemeName(word) === themeFilterValue;
+    });
+}
+
+function urlWithQuery(query) {
+    if (query) {
+        return "/search?query=" + query;
+    }
+    return "/search";
 }

@@ -50,5 +50,9 @@ module ApplicationHelper
     def get_theme_id(theme_name)
         Theme.find_by(name: theme_name).id
     end
+
+    def get_theme_names_and_all
+        get_theme_names.unshift("all")
+    end
 end
 
