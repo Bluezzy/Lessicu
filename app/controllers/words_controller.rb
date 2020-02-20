@@ -1,6 +1,9 @@
 class WordsController < AdminController
     def index
         @words = Word.order(:name)
+        @themes = Theme.all
+        gon.themes = @themes
+        gon.admin = true
     end
 
     def show

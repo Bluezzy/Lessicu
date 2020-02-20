@@ -4,13 +4,14 @@ table {
 
 table tr th{
     text-align: center;
+    color: red;
+    font-weight: bold;
 }
 
 table tr td {
     text-align: center;
 }
 
-table .heading {
-    color: red;
-    font-weight: bold;
+.titres {
+    background-color: #dddddd;
 }

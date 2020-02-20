@@ -4,25 +4,4 @@
 </header>
 <%= render 'layouts/flash' %>
 
-<div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>FRANÇAIS</th>
-            <th>CORSU</th>
-            <th><%= select_tag "CATEGURIE", options_for_select(get_theme_names_and_all) %></th>
-        </tr>
-        <% @words.each do |word| %>
-            <tr>
-                <td><%= word.name %></td>
-                <td><%= word.translation %></td>
-                <td><%= word.theme.name || "no category" %>
-                <td><%= link_to 'Modifier', edit_word_path(word), :class => 'btn btn-warning btn-sm' %></td>
-                <td><%= button_to 'Supprimer', word_path(word), 
-                method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
-            </tr>
-        <% end %>
-    </table>
-</div>
-<br></br>
-<%= link_to "Ajouter au lexique", new_word_path, :class => 'btn btn-primary active' %>
-
+<%= render 'layouts/lexique' %>

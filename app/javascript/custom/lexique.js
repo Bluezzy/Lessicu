@@ -3,10 +3,11 @@ import $ from 'jquery'
 var currentData;
 
 $(document).on('turbolinks:load', function () {
+    if (!gon.admin) {
+        $('.admin').remove()
+    }
     var query = false;
     var themeFilterValue = 'all';
-    // by default, the entire glossary is displayed
-    displayAllGlossary();
 
     // clicking on a letter displays query results
     $('.letter').click(function (e) {
@@ -19,40 +20,14 @@ $(document).on('turbolinks:load', function () {
     $('.all').click(function (e) {
         e.preventDefault();
         query = false;
-        displayAllGlossary();
+        $('tr').show();
     });
 
-    $('select').on('change', function(e) {
+    $('#categurie').on('change', function(e) {
         themeFilterValue = this.value;
         getQueryResults(query, themeFilterValue);
       });
 });
-
-function displayData(data) {
-    for (var i = 0; i < data.length; i++) {
-        var word = data[i];
-        $('#query_results table').append(generateTableRow(word));
-    }
-}
-
-function generateTableRow(word) {
-    return "<tr class='row_result'><td>" + word.name + "</td><td>  " + word.translation + "</td><td> " + getThemeName(word) + "</td></tr>"
-}
-
-function emptyQueryResults() {
-    $('.row_result').remove();
-}
-
-function displayAllGlossary() {
-    $.ajax({
-        url: "/search",
-        method: "get",
-    }).done(function (data) {
-        currentData = data;
-        emptyQueryResults();
-        displayData(data);
-    });
-}
 
 function getQueryResults(query, themeFilterValue) {
     $.ajax({
@@ -60,8 +35,20 @@ function getQueryResults(query, themeFilterValue) {
         method: "get",
     }).done(function (data) {
         currentData = filterWithTheme(themeFilterValue, data);
-        emptyQueryResults();
-        displayData(currentData);
+        displayOnlyQueryData(currentData);
+    });
+}
+
+function displayOnlyQueryData(data) {
+    $('#glossary .row_result').each(function(index, element) {
+        var existsInQuery = data.filter(function(word) {
+            return word.id === Number(element.dataset.id);
+        }).length > 0;
+        if (!existsInQuery) { 
+            $(element).hide(); 
+        } else {
+            $(element).show();
+        }
     });
 }
 
