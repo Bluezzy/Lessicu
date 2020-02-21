@@ -2,10 +2,10 @@ import $ from 'jquery'
 
 var currentData;
 
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
     if (!gon.admin) {
         $('.admin').remove()
-    }
+   }
     var query = false;
     var themeFilterValue = 'all';
 

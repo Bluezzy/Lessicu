@@ -8,7 +8,7 @@
         <div class="article_info">
             <%= image_tag("arrow.png") %>
             <h1><%=article.title%></h1>
-            <%= article.content.html_safe %>
+            <div class='article_content'><%= article.content.html_safe %></div>
         </div>
     <% end %>
 </main>

@@ -1,14 +1,10 @@
-<%= tinymce_assets %>
-
-<%= form_with model: [:admin, @article], url: article_path(@article.id), method: :put  do |f| %>
+<%= form_with model: [:admin, @article], class: 'edit_article_form', url: article_path(@article.id), method: :put  do |f| %>
     <%= f.label :title, "titre" %>
     <%= f.text_field :title,  :required => 'required' %>
     <%= f.label :author, "auteur" %>
     <%= f.text_field :author, :required => 'required' %>
-    <%= f.label :content, "contenu" %>
-    <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
+    <%= render 'layouts/editor' %>
+    <%= content_tag('div', @article.content, :required => 'required', :contenteditable => 'true', :id => 'editable_content') %>
+    <%= f.text_area :content, :require => 'required' %>
     <%= f.submit "Modifier" %>
 <% end %>
-</div>
-
-<%= tinymce %>

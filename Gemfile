@@ -11,9 +11,9 @@ gem 'bootsnap', '~> 1.1', '>= 1.1.7'
 gem 'rails-i18n'
 gem 'sqlite3', '~> 1.4'
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'jquery-rails'
 gem 'pgn'
+gem 'trix-rails', require: 'trix'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
