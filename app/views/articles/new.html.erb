@@ -1,14 +1,9 @@
-<%= tinymce_assets %>
-
-<%= form_with model: [:admin, @article], url: articles_path, method: :post  do |f| %>
+<%= form_with model: [:admin, @article], loca: true, url: articles_path, method: :post  do |f| %>
     <%= f.label :title, "titre" %>
     <%= f.text_field :title,  :required => 'required' %>
     <%= f.label :author, "auteur" %>
     <%= f.text_field :author, :required => 'required' %>
     <%= f.label :content, "contenu" %>
-    <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
+    <%= f.text_area :content, :id => 'article_content' %>
     <%= f.submit "Créer" %>
 <% end %>
-</div>
-
-<%= tinymce %>

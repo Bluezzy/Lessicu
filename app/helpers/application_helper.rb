@@ -3,6 +3,11 @@ module ApplicationHelper
         'a'.upto('z').to_a.map(&:upcase)
     end
 
+    def alphabet_corse
+        ['A', 'B', 'C', 'chj', 'D', 'E', 'F', 'G', 'ghj', 'I', 'J', 'L', 'M', 'N', 'O', 'P',
+         'Q', 'R', 'S', 'T', 'U', 'V', 'Z' ]
+    end
+
     def format_date(date)
         jour = format_day(date.day)
         mois = format_month(date.month)

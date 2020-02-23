@@ -3,11 +3,10 @@ import $ from 'jquery'
 var currentData;
 
 $(document).ready(function () {
-    if (!gon.admin) {
-        $('.admin').remove()
-   }
     var query = false;
     var themeFilterValue = 'all';
+    removeAdminParts();
+    $('.all a').addClass('active');
 
     // clicking on a letter displays query results
     $('.letter').click(function (e) {
@@ -20,18 +19,27 @@ $(document).ready(function () {
     $('.all').click(function (e) {
         e.preventDefault();
         query = false;
-        $('tr').show();
+        getQueryResults(query, themeFilterValue);
     });
 
-    $('#categurie').on('change', function(e) {
+    // additional table-filtering based on word themes
+    $('#categurie').on('change', function (e) {
         themeFilterValue = this.value;
         getQueryResults(query, themeFilterValue);
-      });
+    });
+
+    $('.alphabet').on('click', '.letter a, .all a', function (e) {
+        e.preventDefault();
+        $('.alphabet').children().each(function (e) {
+            $(this).children().removeClass('active');
+        })
+        $(this).toggleClass('active');
+    });
 });
 
 function getQueryResults(query, themeFilterValue) {
     $.ajax({
-        url: urlWithQuery(query),
+        url: urlWithQuery(query, gon.language),
         method: "get",
     }).done(function (data) {
         currentData = filterWithTheme(themeFilterValue, data);
@@ -40,12 +48,12 @@ function getQueryResults(query, themeFilterValue) {
 }
 
 function displayOnlyQueryData(data) {
-    $('#glossary .row_result').each(function(index, element) {
-        var existsInQuery = data.filter(function(word) {
+    $('#glossary .row_result').each(function (index, element) {
+        var existsInQuery = data.filter(function (word) {
             return word.id === Number(element.dataset.id);
         }).length > 0;
-        if (!existsInQuery) { 
-            $(element).hide(); 
+        if (!existsInQuery) {
+            $(element).hide();
         } else {
             $(element).show();
         }
@@ -53,22 +61,35 @@ function displayOnlyQueryData(data) {
 }
 
 function getThemeName(word) {
-    return gon.themes.reduce(function(accumulator, currentTheme) {
-        if (currentTheme.id === word.theme_id) {accumulator += currentTheme.name}
+    return gon.themes.reduce(function (accumulator, currentTheme) {
+        if (currentTheme.id === word.theme_id) { accumulator += currentTheme.name }
         return accumulator;
     }, '');
 }
 
 function filterWithTheme(themeFilterValue, data) {
     if (themeFilterValue === 'all') { return data; }
-    return data.filter(function(word) {
+    return data.filter(function (word) {
         return getThemeName(word) === themeFilterValue;
     });
 }
 
-function urlWithQuery(query) {
-    if (query) {
-        return "/search?query=" + query;
+function urlWithQuery(query, language) {
+    if (language === 'français') {
+        if (query) {
+            return "/search?query=" + query;
+        } else {
+            return "/search";
+        }
+    } else if (language === 'corsu') {
+        if (query) {
+            return "/circa?query=" + query;
+        } else {
+            return "/circa";
+        }
     }
-    return "/search";
+}
+
+function removeAdminParts() {
+    if (!gon.admin) { $('.admin').remove(); }
 }

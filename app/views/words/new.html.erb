@@ -1,5 +1,5 @@
 <h1>Ajouter au lexique</h1>
-<%= form_with model: [:admin, @word], url: words_path do |f| %>
+<%= form_with model: [:admin, @word], local: true, url: words_path do |f| %>
     <%= f.label :name, "mot ou expression" %>
     <%= f.text_field :name, :required => 'required' %>
     <%= f.label :translation, "traduction" %>

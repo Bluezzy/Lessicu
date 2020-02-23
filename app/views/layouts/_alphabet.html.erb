@@ -1,0 +1,10 @@
+<ul class="alphabet">
+    <% alphabet.each do |letter| %>
+        <li class="letter">
+            <%= link_to letter %>
+        </li>
+    <% end %>
+    <li class="all">
+        <%= link_to "ALL" %>
+    </li>
+</ul>

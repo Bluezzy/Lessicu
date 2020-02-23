@@ -26,3 +26,8 @@
 .alphabet li a:hover {
     color: green;
 }
+
+.alphabet li a.active {
+    color: green;
+    font-size: 25px;
+}

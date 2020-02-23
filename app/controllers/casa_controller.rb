@@ -4,7 +4,13 @@ class CasaController < ApplicationController
 
     def search
         query = params[:query]
-        @words = Word.start_with(query)
+        @words = Word.start_with(query, "français")
+        render json: @words
+    end
+
+    def circa
+        query = params[:query]
+        @words = Word.start_with(query, "corsu")
         render json: @words
     end
 end

@@ -6,22 +6,21 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 gem "rack", ">= 2.0.8"
 gem "gon"
-# Use sqlite3 as the database for Active Record
+gem 'ckeditor', '~> 5.0'
+gem 'paperclip'
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
 gem 'rails-i18n'
 gem 'sqlite3', '~> 1.4'
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'jquery-rails'
 gem 'pgn'
-gem 'trix-rails', require: 'trix'
+gem "aws-sdk-s3", require: false
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production

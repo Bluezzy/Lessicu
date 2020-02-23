@@ -1,5 +1,5 @@
 
-<%= form_with model: [:admin, @word], url: word_path(@word.id), method: :put  do |f| %>
+<%= form_with model: [:admin, @word], local: true, url: word_path(@word.id), method: :put  do |f| %>
     <%= f.label :name, "mot ou expression" %>
     <%= f.text_field :name,  :required => 'required' %>
     <%= f.label :translation, "traduction" %>

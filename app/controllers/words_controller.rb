@@ -4,6 +4,7 @@ class WordsController < AdminController
         @themes = Theme.all
         gon.themes = @themes
         gon.admin = true
+        gon.language = 'français'
     end
 
     def show
@@ -19,16 +20,18 @@ class WordsController < AdminController
         if @word.update_attributes(word_params)
             redirect_to words_path, flash: { success: "Modifié avec succès" }
         else
-            redirect_to words_path,  flash: { error: "Une erreur est survenue"}
+            redirect_to words_path, flash: { error: "Une erreur est survenue"}
         end
     end
 
     def create
         @word = Word.new(word_params)
         if @word.save
-            redirect_to words_path, flash: { success: "Ajouté avec succès" }
+            redirect_to words_path, flash: { success: "Ajouté avec succès"}
+            return
         else
             redirect_to words_path, flash: { error: "Une erreur est survenue" }
+            return
         end
     end
 
