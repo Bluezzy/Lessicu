@@ -4,4 +4,11 @@
 </header>
 <%= render 'layouts/flash' %>
 
+<br></br>
+
+<%= link_to "Ajouter au lexique", new_word_path, :class => 'admin btn btn-primary active' %>
+<%= link_to "Ajouter un thème", new_theme_path, :class => 'admin btn btn-primary active' %>
+
+<br></br>
+
 <%= render 'layouts/lexique' %>

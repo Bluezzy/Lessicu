@@ -4,9 +4,8 @@
 </header>
 <%= render 'layouts/flash' %>
 
-<%= form_with model: [:admin, @theme], local: true, url: themes_path do |f| %>
-    <%= f.label :name, "nom du nouveau thème" %>
+<%= form_with model: [:admin, @category], local: true, url: categories_path do |f| %>
+    <%= f.label :name, "nom de la nouvelle catégorie" %>
     <%= f.text_field :name, :required => 'required' %>
     <%= f.submit "Ajouter" %>
 <% end %>
-

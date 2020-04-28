@@ -5,14 +5,28 @@
 
 <main>
     <%= render 'layouts/flash' %>
+    
     <% @articles.each do |article| %>
         <div class="article_info">
             <%= image_tag("arrow.png") %>
             <h1><%=article.title%></h1>
-            <div class='article_content'><%= article.content.html_safe %></div>
-            <%= image_tag article.image %>
+            <div class='article_heading'><%= article.heading.html_safe %></div>
+            <%= image_tag article.image, class: 'heading_image' %>
+            <%= format_date(article.created_at) %>
+            <%= article.author %>
         </div>
+        <%= link_to "Voir", article_path(article), :class => 'see_article' %>
     <% end %>
 </main>
 
-<div></div>
+<aside
+        <ul class='categurie'>
+            <% @categories.each do |category| %>
+                <li class='category_item'>
+                    <%= link_to category.name, category: category.name %>
+                </li>
+            <% end %>
+        </ul>
+</aside>
+
+<%= link_to "Nouvel article", new_article_path %>

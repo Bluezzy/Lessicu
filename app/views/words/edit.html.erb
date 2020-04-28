@@ -5,7 +5,7 @@
     <%= f.label :translation, "traduction" %>
     <%= f.text_field :translation, :required => 'required' %>
     <%= f.label :theme, "thème" %>
-    <%= f.select :theme, options_for_select(get_theme_names) %>
+    <%= f.select :theme, options_for_select(get_names(Theme, @word.theme.name)) %>
     <%= f.submit "Modifier" %>
 <% end %>
 </div>

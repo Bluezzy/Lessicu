@@ -1,13 +1,8 @@
 <div class='full_article'>
-    <div class='title'>
-        <%= @article.title %>
-    </div>
-    <div class='details'>
-        <span class='date'><%= format_date(@article.created_at) %></span>
-        <span class='author'><%= @article.author %></span>
-    </div>
-    <div class='content'>
-        <%= @article.content.html_safe %>
+    <div class="article_info">
+        <%= image_tag("arrow.png") %>
+        <h1><%=@article.title%></h1>
+        <div class='article_content'><%= @article.content.html_safe %></div>
     </div>
 </div>
 
@@ -16,3 +11,5 @@
     <%= button_to "Supprimer", article_path(@article), method: :delete, 
     :class => 'delete_article', data: { confirm: 'Êtes-vous sûr(e)?' } %>
 </div> 
+
+<%= link_to "Retour au blog", articles_path %>

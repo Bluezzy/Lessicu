@@ -3,13 +3,13 @@
         <tr class='titres'>
             <th>FRANÇAIS</th>
             <th>CORSU</th>
-            <th><%= select_tag "categurie", options_for_select(get_theme_names_and_all) %></th>
+            <th><%= select_tag "categurie", options_for_select(get_names(Theme, "all")) %></th>
         </tr>
         <% @words.each do |word| %>
             <tr class="row_result" data-id=<%=word.id%>>
                 <td><%= word.name %></td>
                 <td><%= word.translation %></td>
-                <td><%= word.theme.name || "no category" %>
+                <td><%= word.theme ? word.theme.name : "non catégorisé" %></td>
                 <td class='admin'><%= link_to 'Modifier', edit_word_path(word), :class => 'btn btn-warning btn-sm' %></td>
                 <td class='admin'><%= button_to 'Supprimer', word_path(word), 
                 method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
@@ -19,5 +19,3 @@
 </div>
 
 <br></br>
-
-<%= link_to "Ajouter au lexique", new_word_path, :class => 'admin btn btn-primary active' %>

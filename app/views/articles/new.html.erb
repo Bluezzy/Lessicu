@@ -1,9 +1,13 @@
-<%= form_with model: [:admin, @article], loca: true, url: articles_path, method: :post  do |f| %>
+<%= form_with model: [:admin, @article], local: true, url: articles_path, method: :post  do |f| %>
+    <%= f.select :category, options_for_select(get_names(Category, Category.all.first.name)) %>
     <%= f.label :title, "titre" %>
     <%= f.text_field :title,  :required => 'required' %>
     <%= f.label :author, "auteur" %>
     <%= f.text_field :author, :required => 'required' %>
-    <%= f.label :content, "contenu" %>
+    <%= f.label :heading, "phrase d'accroche" %>
+    <%= f.text_area :heading, :required => 'required' %>
     <%= f.text_area :content, :id => 'article_content' %>
+    <%= f.label :image, "image d'accroche" %>
+    <%= f.file_field :image, :required => 'required' %>
     <%= f.submit "Créer" %>
 <% end %>

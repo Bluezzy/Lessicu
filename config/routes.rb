@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :words
     resources :articles
     resources :themes
+    resources :categories
   end
 end

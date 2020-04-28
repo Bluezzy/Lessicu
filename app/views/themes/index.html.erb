@@ -1,0 +1,25 @@
+<header>
+    <%= render 'layouts/logo' %>
+    <%= render 'layouts/adminnav' %>
+</header>
+<%= render 'layouts/flash' %>
+
+<br></br>
+
+<div class='themes_container'>
+    <%= link_to "Ajouter un thème", new_theme_path, :class => 'admin btn btn-primary active' %>
+
+    <ul class='theme_list'>
+        <% @themes.each do |theme| %>
+            <li class='theme_item'>
+                <% unless theme.name == 'autre' %>
+                    <%= theme.name %>
+                    <%= link_to "Modifier", edit_theme_path(theme) %>
+                    <%= button_to 'Supprimer', theme_path(theme), 
+                        method: :delete, data: { confirm: 'Êtes-vous sûr(e) de vouloir supprimer?' } %>  
+                <% end %>    
+            </li>
+            <br></br>
+        <% end %>
+    </ul>
+</div>

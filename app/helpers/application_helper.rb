@@ -43,13 +43,13 @@ module ApplicationHelper
         year.to_s
     end
 
-    def get_theme_names
-        result = []
-        themes = Theme.all.to_a
+    def get_names(someClass, firstToAppear)
+        result = [firstToAppear]
+        themes = someClass.all.to_a
         0.upto(themes.length - 1) do |i|
             result.push(themes[i].name)
         end
-        result
+        result.uniq
     end
 
     def get_theme_id(theme_name)
@@ -57,7 +57,7 @@ module ApplicationHelper
     end
 
     def get_theme_names_and_all
-        get_theme_names.unshift("all")
+        get_names(Theme).unshift("all")
     end
 end
 

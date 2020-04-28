@@ -1,0 +1,25 @@
+<header>
+    <%= render 'layouts/logo' %>
+    <%= render 'layouts/adminnav' %>
+</header>
+<%= render 'layouts/flash' %>
+
+<br></br>
+
+<div class='categories_container'>
+    <%= link_to "Ajouter une catégorie", new_category_path, :class => 'admin btn btn-primary active' %>
+
+    <ul class='category_list'>
+        <% @categories.each do |category| %>
+            <li class='category_item'>
+                <% unless category.name == 'autre' %>
+                    <%= category.name %>
+                    <%= link_to "Modifier", edit_category_path(category) %>
+                    <%= button_to 'Supprimer', category_path(category), 
+                        method: :delete, data: { confirm: 'Êtes-vous sûr(e) de vouloir supprimer?' } %>  
+                <% end %>    
+            </li>
+            <br></br>
+        <% end %>
+    </ul>
+</div>

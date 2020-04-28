@@ -4,9 +4,8 @@
 </header>
 <%= render 'layouts/flash' %>
 
-<%= form_with model: [:admin, @theme], local: true, url: theme_path(@theme.id), method: :put  do |f| %>
-    <%= f.label :name, "modifier nom du thème" %>
+<%= form_with model: [:admin, @category], local: true, url: category_path(@category.id), method: :put  do |f| %>
+    <%= f.label :name, "modifier nom de la catégorie" %>
     <%= f.text_field :name,  :required => 'required' %>
     <%= f.submit "Modifier" %>
 <% end %>
-

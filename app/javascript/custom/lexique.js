@@ -48,6 +48,7 @@ function getQueryResults(query, themeFilterValue) {
 }
 
 function displayOnlyQueryData(data) {
+    $('.no_result').hide();
     $('#glossary .row_result').each(function (index, element) {
         var existsInQuery = data.filter(function (word) {
             return word.id === Number(element.dataset.id);
@@ -58,6 +59,9 @@ function displayOnlyQueryData(data) {
             $(element).show();
         }
     });
+    if (data.length === 0) {
+        $("#glossary").after('<div class="no_result"><p><em><strong>Pas de résultat</em></strong></p></div>');
+    }
 }
 
 function getThemeName(word) {

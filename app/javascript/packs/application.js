@@ -11,6 +11,7 @@ require("channels")
 require('jquery')
 require('custom/editor')
 require('custom/lexique')
+require('custom/blog')
 require('tinymce-jquery')
 require('custom/chessboard')
 
