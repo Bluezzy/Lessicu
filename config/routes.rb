@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root 'casa#index'
+  resources :users, only: [:show, :edit, :update, :create]
   get 'search', to: 'casa#search'
   get 'circa', to: 'casa#circa'
   get '/blog', to: 'blog#index'
@@ -9,7 +10,8 @@ Rails.application.routes.draw do
   get '/lessicu', to: 'lessicu#cor'
   get '/lessicu/:id', to: 'lessicu#show'
   scope :admin do
-    get "/", to: 'admin#index'
+    get "/", to: 'articles#index'
+    resources :users, only: [:index, :edit, :update, :destroy]
     resources :words
     resources :articles
     resources :themes

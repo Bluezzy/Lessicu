@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+    paginates_per 20
     belongs_to :category
     has_and_belongs_to_many :themes
     has_many :words, through: :themes

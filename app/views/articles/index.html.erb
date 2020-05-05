@@ -5,6 +5,8 @@
 
 <main>
     <%= render 'layouts/flash' %>
+
+    <%= link_to "Nouvel article", new_article_path %>
     
     <% @articles.each do |article| %>
         <div class="article_info">
@@ -29,4 +31,4 @@
         </ul>
 </aside>
 
-<%= link_to "Nouvel article", new_article_path %>
+<%= link_to_next_page @articles, 'Page suivante' %>

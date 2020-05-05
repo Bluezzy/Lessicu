@@ -1,4 +1,5 @@
 class Word < ApplicationRecord
+    paginates_per 250
     belongs_to :theme
     validates :name,  presence: true, uniqueness: true
     validates :translation, presence: true, uniqueness: true

@@ -1,17 +1,27 @@
+.accueil {
+    background: url("accueil2.png") no-repeat;
+    height: 680px;
+}
+
 .accueil nav {
     display: flex;
     align-items: center;
+    position: relative;
+    top: 440px;
+    left: 870px;
 }
 
 .accueil nav a {
     text-decoration-style: none;
     color: white;
-    border-right: 1px solid white;
+    border-right: 2px solid white;
     padding-right: 15px;
     padding-left: 15px;
     font-family: 'BellGothic Black';
-    height: 50px;
+    font-size: 40px;
+    height: 40px;
     vertical-align: middle;
+    line-height: 1;
 }
 
 .accueil nav a:last-child {

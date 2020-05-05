@@ -6,6 +6,8 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 gem "rack", ">= 2.0.8"
 gem "gon"
+gem 'bcrypt', '~> 3.1.7'
+gem 'kaminari'
 gem 'ckeditor', '~> 5.0'
 gem 'paperclip'
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
