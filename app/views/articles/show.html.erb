@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div class='admin' id='admin_article_options'>
+<div class='admin_article_options'>
     <%= link_to "Modifier", edit_article_path(@article), :class => 'edit_article' %>
     <%= button_to "Supprimer", article_path(@article), method: :delete, 
     :class => 'delete_article', data: { confirm: 'Êtes-vous sûr(e)?' } %>

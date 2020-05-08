@@ -44,6 +44,8 @@ function getQueryResults(query, themeFilterValue) {
     }).done(function (data) {
         currentData = filterWithTheme(themeFilterValue, data);
         displayOnlyQueryData(currentData);
+    }).fail(function (a, b, c) {
+        alert('votre requête a échoué')
     });
 }
 
@@ -81,15 +83,15 @@ function filterWithTheme(themeFilterValue, data) {
 function urlWithQuery(query, language) {
     if (language === 'français') {
         if (query) {
-            return "/search?query=" + query;
+            return "/admin/search?query=" + query;
         } else {
-            return "/search";
+            return "/admin/search";
         }
     } else if (language === 'corsu') {
         if (query) {
-            return "/circa?query=" + query;
+            return "/admin/circa?query=" + query;
         } else {
-            return "/circa";
+            return "/admin/circa";
         }
     }
 }

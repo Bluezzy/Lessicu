@@ -1,4 +1,5 @@
 header {
+    align-items: center;
     display: flex;
     background-size: cover;
     background-image: url('/assets/fond.jpg');
@@ -8,45 +9,99 @@ header {
     padding-left: 60px;
     padding-right: 60px;
     justify-content: space-between;
+    .logo {
+        min-width: 345px;
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        font-family: 'Optima';
+        font-size: 25px;
+        font-weight: 500;
+        color: white;
+        span {
+            margin-right: 10px;
+            white-space: no-wrap;
+        }
+        span:nth-child(2) {
+            margin-right: 5px;
+        }
+        span:nth-child(4) {
+            margin-right: 0px;
+        }
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        a {
+            text-decoration-style: none;
+            color: white;
+            border-right: 1px solid white;
+            padding-right: 15px;
+            padding-left: 15px;
+            font-family: 'BellGothic Black';
+            height: 30px;
+            vertical-align: middle;
+            &:hover {
+                text-decoration: none;
+                color: #00cc66;
+            }
+        }
+        a:last-child {
+            border: none;
+        }
+    }
 }
 
-header .logo {
-    min-width: 345px;
-    display: flex;
-    align-items: center;
-    margin: 0px;
-    font-family: 'Optima';
-    font-size: 25px;
-    font-weight: 500;
-    color: white;
+@media (max-width: 655px) {
+    header {
+        display: grid;
+        padding-left: 10px;
+        padding-right: 10px;
+        align-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas:
+        "logo logo"
+        "nav nav";
+        .logo {
+            display: flex;
+            grid-area: logo;
+            justify-content: center;
+            font-size: 19px;
+            min-width: 200px;
+            overflow: hidden;
+            white-space: no-wrap;
+            span {
+                overflow: hidden;
+                white-space: no-wrap;
+                margin-right: 8px;
+                span:nth-child(2) {
+                    margin-right: 4px;
+                }
+            }
+        }
+        nav {
+            display: flex;
+            grid-area: nav;
+            align-items: center;
+            justify-content: center;
+            a {
+                border: none;
+            }
+        }
+    }
 }
 
-header .logo span {
-    margin-right: 10px;
-    white-space: no-wrap;
-}
-
-header nav {
-    display: flex;
-    align-items: center;
-}
-
-header nav a {
-    text-decoration-style: none;
-    color: white;
-    border-right: 1px solid white;
-    padding-right: 15px;
-    padding-left: 15px;
-    font-family: 'BellGothic Black';
-    height: 30px;
-    vertical-align: middle;
-}
-
-header nav a:last-child {
-    border: none;
-}
-
-header nav a:hover {
-    text-decoration: none;
-    color: #00cc66;
+@media (max-width: 280px) {
+    header {
+        padding: 0px;
+        .logo span {
+            display: inline-block;
+            margin-right: 6px;
+            overflow: hidden;
+            span:nth-child(2) {
+                margin-right: 3px;
+            }
+        }
+    }
 }

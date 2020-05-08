@@ -3,24 +3,39 @@
     <%= render 'layouts/nav' %>
 </header>
 
-<% @articles.each do |article| %>
-    <div class='article'>
-        <div class="title">
-            <%= image_tag("arrow.png")%>
-            <h1><%=article.title%></h1>
-        </div>
-        <div class='description'>
-            <div class='info'>
-                <h2>Publié <%= format_date(article.created_at)%> par <%= article.author%></h2>
-            </div>
-            <div class='heading'>
-                <p><%= article.heading.html_safe %></p>
-                <%= image_tag article.image, class: 'heading_image' %>
-                <%= link_to "Lire l'article", article_path(article) %>
-            </div>
-        </div>
-    </div>
-<% end %>
+<div class='blog'>
+    <main class="articles">
+        <% @articles.each do |article| %>
+            <%= link_to article_path(article), class:'read_article' do %>
+                <div class='article'>
+                    <div class="title">
+                        <span class='pastille'><%= image_tag("arrow.png") %></span>
+                        <h1><%=article.title%></h1>
+                    </div>
+                    <div class='description'>
+                        <div class='info'>
+                            <h2>Publié <%= format_date(article.created_at)%> par <%= article.author%></h2>
+                        </div>
+                        <div class='heading'>
+                            <p><%= article.heading.html_safe %></p>
+                            <%= image_tag article.image %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </main>
+
+    <aside>
+        <ul class='categories'>
+            <% @categories.each do |category| %>
+                <li class='category_item'>
+                    <%= link_to category.name, category: category.name %>
+                </li>
+            <% end %>
+        </ul>
+    </aside>
+</div>
 
 <%= link_to_next_page @articles, 'Page suivante' %>
 

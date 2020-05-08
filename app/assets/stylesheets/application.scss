@@ -11,13 +11,14 @@
  * It is generally better to create a new file per style scope.
  */
 
+
  @import "bootstrap";
  @import "alphabet.scss";
+ @import "scaffolds.scss";
  @import "flash.scss";
  @import "header.scss";
- @import "table.scss";
+ @import "glossary.scss";
  @import "chessboard.scss";
  @import "blog";
- @import "pas_de_resultat";
  @import "theme.scss";
  @import "accueil.scss";
