@@ -8,11 +8,51 @@
         }
     }
     .titres {
-        background-color: #dddddd;
+        background-color: #cccccc;
+        margin: 0 -9999rem;
+        padding: 0.24rem -9999rem;
     }
 }
 
 .no_result p {
     text-align: center;
     font-family: Optima;
+}
+
+ select::-ms-expand {
+    display: none;
+ }
+
+ .select {
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 30px auto;
+    display: flex;
+    line-height: 2;
+    background: #808886;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+ .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #2b2e2e;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color: #23b499;
+ }
+
+.admin_options {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

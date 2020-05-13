@@ -12,8 +12,8 @@ module TimeHelper
     end
 
     def previous_day?(date, current_time = Time.now)
-        current_month?(date, current_time) || last_day_of_month?(date) && 
-        (date + 1.day).day == current_time.day    
+        (date + 1.day).day == current_time.day &&
+        (current_month?(date, current_time) || last_day_of_month?(date))
     end
 
     def last_day_of_month?(date)
@@ -65,13 +65,3 @@ module TimeHelper
         year.to_s
     end
 end
-
-# same month :
-#   today
-#   yesterday
-#   any day of the month
-
-
-# yesterday, different month
-# any day, any month, same year
-# any day, another year

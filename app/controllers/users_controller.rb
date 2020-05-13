@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < AdminController
+  before_action :set_user, except: [:index, :new, :create]
+  before_action :authorize, except: [:show]
 
   # GET /users
   # GET /users.json
@@ -9,6 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    unless logged_in?
+      redirect_to root_path, flash: { error: "Espace réversé aux membres"}
+    end
   end
 
   # GET /users/new
@@ -55,7 +60,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Membre supprimé avec succès.' }
       format.json { head :no_content }
     end
   end
@@ -68,6 +73,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

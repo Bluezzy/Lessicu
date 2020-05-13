@@ -1,23 +1,25 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  root 'casa#index
+
+  root 'articles#index'
+
+  get '/search', to: 'glossary#search'
+  get '/circa', to: 'glossary#circa'
+
   get '/signup', to: 'users#new'
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-  resources :users, only: [:show, :edit, :update, :create]
-  get '/blog', to: 'blog#index'
-  get '/blog/:id', to: 'blog#show'
+  get '/login', to: 'session#new'
+  post '/login', to: 'session#create'
+  delete '/logout', to: 'session#destroy'
+
   get '/lexique', to: 'lessicu#index'
   get '/lessicu', to: 'lessicu#cor'
-  get '/lessicu/:id', to: 'lessicu#show'
+
+  resources :articles
+
   scope :admin do
-    get "/", to: 'articles#index'
-    get '/search', to: 'casa#search'
-    get '/circa', to: 'casa#circa'
-    resources :users, only: [:index, :edit, :update, :destroy]
+    get '', to: 'admin#index'
+    resources :users
     resources :words
-    resources :articles
     resources :themes
     resources :categories
   end

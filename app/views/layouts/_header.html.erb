@@ -1,0 +1,29 @@
+<header>
+    <div class='logo'>
+        <span style='color:#009999'>SCACCHI</span>
+        <span style='color:white'>IN</span>
+        <span style='color:white'>LINGUA</span>
+        <span style='color:#00cc66'>CORSA</span>
+    </div>
+
+    <% if admin? %>
+        <nav>
+            <%= link_to "categories", categories_path %>
+            <%= link_to "lexique", words_path %>
+            <%= link_to "blog", articles_path %>
+            <%= link_to 'membres', users_path %>
+            <%= link_to "log out", logout_path, authenticity_token: true, method: :delete %>
+        </nav>
+    <% else %>
+        <nav>
+            <%= link_to "blog", articles_path %>
+            <%= link_to "lexique", lessicu_path %>
+            <% if logged_in? %>
+                <%= link_to "profil", user_path(current_user) %>
+                <%= link_to "log out", logout_path, authenticity_token: form_authenticity_token, method: :delete %>
+            <% else %>
+                <%= link_to "login", login_path %>
+            <% end %>
+        </nav>
+    <% end %>
+</header>

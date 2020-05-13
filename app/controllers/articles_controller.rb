@@ -1,18 +1,20 @@
-class ArticlesController < AdminController
+class ArticlesController < ApplicationController
+    before_action :authorize, except: [:index, :show]
+
     def index
         if params[:category]
             category_name = params[:category]
             category_id = Category.get_id(category_name)
-            @articles = Article.where("category_id = ?", category_id).order(creatd_at: :desc).page params[:page]
+            @articles = Article.where("category_id = ?", category_id).order(created_at: :desc).page params[:page]
         else
             @articles = Article.order(created_at: :desc).page params[:page]
         end
-
+    
         @categories = Category.all
         gon.articles = @articles
         gon.categories = @categories
     end
-
+    
     def show
         @article = Article.find(params[:id])
     end
@@ -52,5 +54,8 @@ class ArticlesController < AdminController
         params[:article][:category_id] = Category.get_id(params[:article][:category])
         permitted = params.require(:article).permit(:author, :title, :content, :image, :heading, :category_id)
         permitted
+    end
+
+    def authorized
     end
 end

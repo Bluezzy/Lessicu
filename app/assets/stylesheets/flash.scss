@@ -1,11 +1,19 @@
 .success {
+    text-align: center;
+    display: flex;
+    align-items: center;
     color: green;
     background-color: greenyellow;
     border: 1px solid green;
+    p {
+        margin: 0;
+        vertical-align: middle;
+        font-weight: bolder;
+    }
 }
 
 .error {
     color: red;
-    background-color: lightcoral;
-    border: 1px solid red;
+    font-weight: bolder;
+    text-align: center;
 }

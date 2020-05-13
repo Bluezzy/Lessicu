@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>Membres</h1>
 
 <table>
   <thead>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Voir', user %></td>
+        <td><%= link_to 'Voir', user_path(user) %></td>
         <td><%= link_to 'Modifier', edit_user_path(user) %></td>
-        <td><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Supprimer', user_path(user), method: :delete, data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
       </tr>
     <% end %>
   </tbody>

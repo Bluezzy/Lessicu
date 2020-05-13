@@ -10,10 +10,14 @@
     <%= javascript_pack_tag 'application' %>
     <script src="https://kit.fontawesome.com/a070214f66.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <% if content_for? :for_head %>
+      <%= yield :for_head %>
+    <% end %>
     <%= include_gon %>
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <%= yield %>
   </body>
 </html>

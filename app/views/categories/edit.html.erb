@@ -1,7 +1,3 @@
-<header>
-    <%= render 'layouts/logo' %>
-    <%= render 'layouts/adminnav' %>
-</header>
 <%= render 'layouts/flash' %>
 
 <%= form_with model: [:admin, @category], local: true, url: category_path(@category.id), method: :put  do |f| %>

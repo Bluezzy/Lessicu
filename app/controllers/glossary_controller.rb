@@ -1,7 +1,4 @@
-class CasaController < ApplicationController
-    def index
-    end
-
+class GlossaryController < ApplicationController
     def search
         query = params[:query]
         @words = Word.start_with(query, "français").order(:name).page params[:page]

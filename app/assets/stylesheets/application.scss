@@ -11,8 +11,9 @@
  * It is generally better to create a new file per style scope.
  */
 
-
+ @import "bourbon";
  @import "bootstrap";
+ @import 'font_awesome5.css';
  @import "alphabet.scss";
  @import "scaffolds.scss";
  @import "flash.scss";
@@ -22,3 +23,4 @@
  @import "blog";
  @import "theme.scss";
  @import "accueil.scss";
+ @import "login.scss";

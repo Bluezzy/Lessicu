@@ -1,14 +1,13 @@
-<header>
-    <%= render 'layouts/logo' %>
-    <%= render 'layouts/adminnav' %>
-</header>
 <%= render 'layouts/flash' %>
 
 <br></br>
 
-<%= link_to "Ajouter au lexique", new_word_path, :class => 'admin btn btn-primary active' %>
-<%= link_to "Ajouter un thème", new_theme_path, :class => 'admin btn btn-primary active' %>
+<% if admin? %>
+    <div class='admin_options'>
+        <%= link_to "Ajouter au lexique", new_word_path, :class => 'btn btn-primary active' %>
+        <%= link_to "Ajouter un thème", new_theme_path, :class =>  'btn btn-primary active' %>
+    </div>
+<% end %>
 
-<br></br>
-
+<%= render 'layouts/alphabet' %>
 <%= render 'layouts/lexique' %>

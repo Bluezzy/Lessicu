@@ -5,7 +5,11 @@ var currentData;
 $(document).ready(function () {
     var query = false;
     var themeFilterValue = 'all';
-    removeAdminParts();
+    if (!gon.admin) {
+        $('.admin').remove();
+    } else {
+        $('.titres').append('<th></th><th></th>')
+    }
     $('.all a').addClass('active');
 
     // clicking on a letter displays query results
@@ -45,6 +49,7 @@ function getQueryResults(query, themeFilterValue) {
         currentData = filterWithTheme(themeFilterValue, data);
         displayOnlyQueryData(currentData);
     }).fail(function (a, b, c) {
+        debugger;
         alert('votre requête a échoué')
     });
 }
@@ -83,19 +88,15 @@ function filterWithTheme(themeFilterValue, data) {
 function urlWithQuery(query, language) {
     if (language === 'français') {
         if (query) {
-            return "/admin/search?query=" + query;
+            return "/search?query=" + query;
         } else {
-            return "/admin/search";
+            return "/search";
         }
     } else if (language === 'corsu') {
         if (query) {
-            return "/admin/circa?query=" + query;
+            return "/circa?query=" + query;
         } else {
-            return "/admin/circa";
+            return "/circa";
         }
     }
-}
-
-function removeAdminParts() {
-    if (!gon.admin) { $('.admin').remove(); }
 }

@@ -1,3 +1,6 @@
 class AdminController < ApplicationController
-    http_basic_authenticate_with name: "jeanphi", password: "grandroque"
+    before_action :authorize
+
+    def index
+    end
 end

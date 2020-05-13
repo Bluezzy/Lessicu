@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 import $ from 'jquery'
+import "@fortawesome/fontawesome-free/css/all.css"
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()

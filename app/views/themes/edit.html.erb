@@ -1,7 +1,4 @@
-<header>
-    <%= render 'layouts/logo' %>
-    <%= render 'layouts/adminnav' %>
-</header>
+
 <%= render 'layouts/flash' %>
 
 <%= form_with model: [:admin, @theme], local: true, url: theme_path(@theme.id), method: :put  do |f| %>

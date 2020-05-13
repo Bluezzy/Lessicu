@@ -16,6 +16,6 @@ class LessicuController < ApplicationController
     def setup
         @themes = Theme.all
         gon.themes = @themes
-        gon.admin = false
+        gon.admin = admin?
     end
 end
