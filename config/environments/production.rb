@@ -3,10 +3,12 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.assets.js_compressor = Uglifier.new(:harmony => true)
 
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
+
+  config.require_master_key = true
+  config.read_encrypted_secrets = true
 
   config.assets.initialize_on_precompile = false
 
