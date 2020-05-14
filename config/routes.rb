@@ -11,14 +11,15 @@ Rails.application.routes.draw do
   post '/login', to: 'session#create'
   delete '/logout', to: 'session#destroy'
 
-  get '/lexique', to: 'lessicu#index'
   get '/lessicu', to: 'lessicu#cor'
+  get '/lexique', to: 'lessicu#fr'
 
   resources :articles
+  resources :users, only: [:show, :edit, :update]
 
   scope :admin do
     get '', to: 'admin#index'
-    resources :users
+    resources :users, except: [:show, :edit, :update]
     resources :words
     resources :themes
     resources :categories

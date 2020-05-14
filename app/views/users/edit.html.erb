@@ -2,5 +2,7 @@
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Voir', @user %> |
-<%= link_to 'Revenir', users_path %>
+<%= link_to 'Voir', @user %>
+<% if admin? %>
+  <%= link_to 'Revenir', users_path %>
+<% end %>

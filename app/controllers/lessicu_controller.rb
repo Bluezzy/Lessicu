@@ -1,7 +1,7 @@
 class LessicuController < ApplicationController
     before_action :setup
 
-    def index
+    def fr
         @words = Word.order(:name).page params[:page]
         gon.language = 'français'
     end

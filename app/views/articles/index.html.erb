@@ -3,6 +3,9 @@
 <div class='blog_container'>
     <div class='blog'>
         <main class="articles">
+            <% if admin? %>
+                <%= link_to "Nouvel Article", new_article_path, class: 'btn btn-primary active'  %>
+            <% end %>
             <% @articles.each do |article| %>
                 <%= link_to article_path(article), class:'read_article' do %>
                     <div class='article'>
@@ -27,9 +30,11 @@
         <aside>
             <ul class='categories'>
                 <% @categories.each do |category| %>
-                    <li class='category_item'>
-                        <%= link_to category.name, category: category.name %>
-                    </li>
+                    <% unless category.articles.length == 0 %>                  
+                        <li class='category_item'>
+                            <%= link_to category.name, category: category.name %>
+                        </li>
+                    <% end %>
                 <% end %>
             </ul>
         </aside>

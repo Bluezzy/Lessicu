@@ -1,6 +1,8 @@
 class UsersController < AdminController
   before_action :set_user, except: [:index, :new, :create]
-  before_action :authorize, except: [:show]
+  before_action :authorize, except: [:show, :edit, :update]
+  before_action :same_user?, only: [:edit, :update]
+
 
   # GET /users
   # GET /users.json
@@ -46,7 +48,7 @@ class UsersController < AdminController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Vos données ont bien été modifiées.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -74,5 +76,11 @@ class UsersController < AdminController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def same_user?
+      unless @user.id == current_user.id
+        redirect_to root_path, flash: { error: "Vous n'êtes pas autorisé à modifier les détails d'un autre membre !"}
+      end
     end
 end
