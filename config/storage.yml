@@ -12,6 +12,7 @@ amazon:
   access_key_id: "AKIA2D2OYLXCC76OX3FI"
   secret_access_key: "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"
   region: "eu-west-3"
+  bucket: "concatenariu-corsu"
 
 gcs: &gcs
   service: GCS
