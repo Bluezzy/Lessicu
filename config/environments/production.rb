@@ -10,7 +10,7 @@ Rails.application.configure do
   config.require_master_key = true
   config.read_encrypted_secrets = true
 
-  config.assets.initialize_on_precompile = true
+  config.assets.initialize_on_precompile = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -45,7 +45,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
