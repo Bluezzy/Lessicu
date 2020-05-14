@@ -1,10 +1,12 @@
-<ul class="alphabet">
-    <% alphabet_corse.each do |letter| %>
-        <li class="letter">
-            <%= link_to letter %>
+<div class='alphabet_wrapper'>
+    <ul class="alphabet">
+        <% alphabet_corse.each do |letter| %>
+            <li class="letter">
+                <%= link_to letter %>
+            </li>
+        <% end %>
+        <li class="all">
+            <%= link_to "TOUT" %>
         </li>
-    <% end %>
-    <li class="all">
-        <%= link_to "ALL" %>
-    </li>
-</ul>
+    </ul>
+</div>

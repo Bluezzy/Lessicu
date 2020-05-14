@@ -1,29 +1,38 @@
 <header>
     <div class='logo'>
-        <span style='color:#009999'>SCACCHI</span>
-        <span style='color:white'>IN</span>
-        <span style='color:white'>LINGUA</span>
-        <span style='color:#00cc66'>CORSA</span>
+        <span style='color:#00cccc'>SCACCHI</span>
+        <span>IN</span>
+        <span>LINGUA</span>
+        <span>CORSA</span>
     </div>
 
-    <% if admin? %>
-        <nav>
-            <%= link_to "categories", categories_path %>
-            <%= link_to "lexique", words_path %>
-            <%= link_to "blog", articles_path %>
-            <%= link_to 'membres', users_path %>
-            <%= link_to "log out", logout_path, authenticity_token: true, method: :delete %>
-        </nav>
-    <% else %>
-        <nav>
-            <%= link_to "blog", articles_path %>
-            <%= link_to "lexique", lessicu_path %>
-            <% if logged_in? %>
-                <%= link_to "profil", user_path(current_user) %>
-                <%= link_to "log out", logout_path, authenticity_token: form_authenticity_token, method: :delete %>
-            <% else %>
-                <%= link_to "login", login_path %>
+    <nav>
+        <%= link_to articles_path do %>
+            <i class="fab fa-blogger"></i>
+        <% end %>
+        <%= link_to lessicu_path do %>
+            <i class="fas fa-book"></i>
+        <% end %>
+
+        <% if logged_in? %>
+            <%= link_to user_path(current_user) do %>
+                <i class="fas fa-user"></i>
             <% end %>
-        </nav>
-    <% end %>
+            <% if admin? %>
+                <%= link_to '/gestion' do %>
+                    <i class="fas fa-tools"></i>
+                <% end %>
+                <%= link_to users_path do %>
+                    <i class="fas fa-users-cog"></i>
+                <% end %>
+            <% end %>
+            <%= link_to logout_path, authenticity_token: true, method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i>
+            <% end %>
+        <% else %>
+            <%= link_to login_path do %>
+                <i class="fas fa-sign-in-alt"></i>
+            <% end %>
+        <% end %>
+    </nav>
 </header>

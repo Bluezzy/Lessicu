@@ -1,9 +1,10 @@
 #glossary {
+    width: 50%;
+    margin: auto;
     font-family: Optima;
     tr {
-        text-align: center;
         th {
-            color: red;
+            color: #f11414;
             font-weight: bold;
         }
     }
@@ -24,11 +25,12 @@
  }
 
  .select {
-    width: 45%;
+    width: 50%;
     justify-content: center;
     align-items: center;
     position: relative;
     margin: 30px auto;
+    margin-top: 5px;
     display: flex;
     line-height: 2;
     background: #808886;
@@ -51,8 +53,17 @@
  }
 
 .admin_options {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+@media (max-width: 655px) {
+    .select #categurie {
+        width: 90%;
+    }
+    #glossary {
+        width: 90%;
+    }
 }

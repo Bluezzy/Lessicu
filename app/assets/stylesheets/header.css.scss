@@ -1,11 +1,9 @@
 header {
     align-items: center;
     display: flex;
-    background-size: cover;
-    background-image: url(image_path('fond.jpg'));
-    background-repeat: no-repeat;
-    background-position: 100%;
-    height: 75px;
+    width: 100%;
+    background: #006666;
+    height: 50px;
     padding-left: 30px;
     padding-right: 30px;
     justify-content: space-between;
@@ -15,15 +13,15 @@ header {
         align-items: center;
         margin: 0px;
         font-family: 'Optima';
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 500;
         color: white;
         span {
             margin-right: 10px;
             white-space: no-wrap;
         }
-        span:nth-child(2) {
-            margin-right: 5px;
+        span:nth-child(1) {
+            font-size: 25px;
         }
         span:nth-child(4) {
             margin-right: 0px;
@@ -43,7 +41,7 @@ header {
             vertical-align: middle;
             &:hover {
                 text-decoration: none;
-                color: #00cc66;
+                color: #00cccc;
             }
         }
         a:last-child {
@@ -52,7 +50,7 @@ header {
     }
 }
 
-@media (max-width: 805px) {
+@media (max-width: 655px) {
     header {
         display: grid;
         padding-left: 10px;
@@ -86,7 +84,6 @@ header {
             grid-area: nav;
             align-items: center;
             justify-content: center;
-            padding-bottom: 10px;
             flex-wrap: wrap;
             a {
                 margin-bottom: 4px;

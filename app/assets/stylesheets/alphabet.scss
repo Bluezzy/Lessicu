@@ -1,13 +1,19 @@
+.alphabet_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .alphabet {
     display: flex;
     flex-wrap: wrap;
+    width: 80%;
     justify-content: space-around;
-    width: 90%;
     border-top: 1px solid;
     border-bottom: 1px solid;
-    border-color: gray;
+    border-color: hsl(0, 0%, 60%);
     margin: 25px 10px;
-    height: 48px;
+    height: 35px;
 }
 
 .alphabet li {
@@ -17,7 +23,7 @@
 }
 
 .alphabet li a {
-    color: #003366;
+    color: hsl(0, 0%, 60%);
     text-decoration: none;
     font-family: Optima;
     font-weight: bold;
@@ -25,10 +31,25 @@
 }
 
 .alphabet li a:hover {
-    color: green;
+    color: #006666;
+    font-weight: bold;
 }
 
 .alphabet li a.active {
-    color: green;
-    font-size: 25px;
+    color: #f11414;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+@media (max-width: 655px) {
+    .alphabet {
+        height: 30px;
+        width: 90%;
+    }
+    .alphabet li a {
+        font-size: 14px;
+    }
+    .alphabet li a.active {
+        font-size: 15px;
+    }
 }

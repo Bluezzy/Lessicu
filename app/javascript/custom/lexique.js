@@ -4,7 +4,7 @@ var currentData;
 
 $(document).ready(function () {
     var query = false;
-    var themeFilterValue = 'all';
+    var themeFilterValue = 'tout';
     if (!gon.admin) {
         $('.admin').remove();
     } else {
@@ -80,7 +80,7 @@ function getThemeName(word) {
 }
 
 function filterWithTheme(themeFilterValue, data) {
-    if (themeFilterValue === 'all') { return data; }
+    if (themeFilterValue === 'tout') { return data; }
     return data.filter(function (word) {
         return getThemeName(word) === themeFilterValue;
     });
