@@ -4,7 +4,7 @@ module ApplicationHelper
     end
 
     def alphabet_corse
-        ['A', 'B', 'C', 'CHJ', 'D', 'E', 'F', 'G', 'GHJ', 'I', 'J', 'L', 'M', 'N', 'O', 'P',
+        ['A', 'B', 'C', 'Chj', 'D', 'E', 'F', 'G', 'Ghj', 'I', 'J', 'L', 'M', 'N', 'O', 'P',
          'Q', 'R', 'S', 'T', 'U', 'V', 'Z' ]
     end
 

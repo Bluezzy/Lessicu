@@ -48,6 +48,8 @@ class WordsController < AdminController
 
     def word_params
         params[:word][:theme_id] = Theme.get_id(params[:word][:theme])
+        params[:word][:name].capitalize!
+        params[:word][:translation].capitalize!
         permitted = params.require(:word).permit(:name, :translation, :theme_id)
         permitted
     end

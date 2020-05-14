@@ -16,6 +16,7 @@ $(document).ready(function () {
     $('.letter').click(function (e) {
         e.preventDefault();
         query = $(this).children().text();
+        debugger;
         getQueryResults(query, themeFilterValue);
     });
 

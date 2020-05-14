@@ -1,8 +1,7 @@
-<h1>Editing User</h1>
+<h1>Modifiez vos données</h1>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Voir', @user %>
 <% if admin? %>
   <%= link_to 'Revenir', users_path %>
 <% end %>
