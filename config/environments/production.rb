@@ -8,6 +8,8 @@ Rails.application.configure do
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
 
+  config.assets.initialize_on_precompile = false
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
