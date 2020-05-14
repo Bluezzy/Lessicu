@@ -10,7 +10,7 @@ Rails.application.configure do
   config.require_master_key = true
   config.read_encrypted_secrets = true
 
-  config.assets.initialize_on_precompile = false
+  config.assets.initialize_on_precompile = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -34,7 +34,8 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
+  config.assets.digest = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
@@ -83,7 +84,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
