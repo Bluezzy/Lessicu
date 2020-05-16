@@ -1,5 +1,11 @@
 <div class='select'>
-    <%= select_tag "categurie", options_for_select(get_names(Theme, "tout")) %>
+    <select name="categurie" id="categurie">
+        <option selected disabled>Choisissez une catégorie</option>
+    <% get_names(Theme).each do |themeName| %>
+        <option value=<%=themeName%>><%=themeName%></option>
+    <% end %>
+        <option value="tout">Toutes les catégories</option>
+    </select>
 </div>
 
 <div id="glossary" class="table-responsive">

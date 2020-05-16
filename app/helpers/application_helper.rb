@@ -8,11 +8,11 @@ module ApplicationHelper
          'Q', 'R', 'S', 'T', 'U', 'V', 'Z' ]
     end
 
-    def get_names(anyModel, firstToAppear)
-        result = [firstToAppear]
-        themes = anyModel.all.to_a
-        0.upto(themes.length - 1) do |i|
-            result.push(themes[i].name)
+    def get_names(anyModel, firstToAppear = false)
+        result = firstToAppear ? [firstToAppear] : []
+        names = anyModel.all.to_a
+        0.upto(names.length - 1) do |i|
+            result.push(names[i].name)
         end
         result.uniq
     end

@@ -4,52 +4,32 @@ var currentData;
 
 $(document).ready(function () {
     var query = false;
-    var themeFilterValue = 'tout';
-    if (!gon.admin) {
-        $('.admin').remove();
-    } else {
-        $('.titres').append('<th></th><th></th>')
-    }
-    $('.all a').addClass('active');
-
-    // clicking on a letter displays query results
-    $('.letter').click(function (e) {
-        e.preventDefault();
-        query = $(this).children().text();
-        getQueryResults(query, themeFilterValue);
-    });
-
-    // clicking on "all" display the entire glossary
-    $('.all').click(function (e) {
-        e.preventDefault();
-        query = false;
-        getQueryResults(query, themeFilterValue);
-    });
+    var category = 'tout';
+    handleAdminElements();
+    getQueryResults(query, category);
 
     // additional table-filtering based on word themes
     $('#categurie').on('change', function (e) {
-        themeFilterValue = this.value;
-        getQueryResults(query, themeFilterValue);
+        category = this.value;
+        getQueryResults(query, category);
     });
 
-    $('.alphabet').on('click', '.letter a, .all a', function (e) {
+    $('.alphabet').on('click', '.letter a', function (e) {
         e.preventDefault();
-        $('.alphabet').children().each(function (e) {
-            $(this).children().removeClass('active');
-        })
-        $(this).toggleClass('active');
+        toggleLetterProcess(this);
+        query = (this.classList.contains("active") ? $(this).text() : false);
+        getQueryResults(query, category);
     });
 });
 
-function getQueryResults(query, themeFilterValue) {
+function getQueryResults(query, category) {
     $.ajax({
         url: urlWithQuery(query, gon.language),
         method: "get",
     }).done(function (data) {
-        currentData = filterWithTheme(themeFilterValue, data);
+        currentData = filterWithCategory(category, data);
         displayOnlyQueryData(currentData);
     }).fail(function (a, b, c) {
-        debugger;
         alert('votre requête a échoué')
     });
 }
@@ -78,10 +58,10 @@ function getThemeName(word) {
     }, '');
 }
 
-function filterWithTheme(themeFilterValue, data) {
-    if (themeFilterValue === 'tout') { return data; }
+function filterWithCategory(category, data) {
+    if (category === 'tout') { return data; }
     return data.filter(function (word) {
-        return getThemeName(word) === themeFilterValue;
+        return getThemeName(word) === category;
     });
 }
 
@@ -98,5 +78,22 @@ function urlWithQuery(query, language) {
         } else {
             return "/circa";
         }
+    }
+}
+
+function toggleLetterProcess(letterLinkElement) {
+    if (!letterLinkElement.classList.contains("active")) {
+        $('.alphabet').children().each(function (e) {
+            $(this).find('a').removeClass('active');
+        });
+    }
+    $(letterLinkElement).toggleClass('active');
+}
+
+function handleAdminElements() {
+    if (!gon.admin) {
+        $('.admin').remove();
+    } else {
+        $('.titres').append('<th></th><th></th>')
     }
 }
