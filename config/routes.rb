@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  root 'articles#index'
+  root 'lessicu#cor'
 
   get '/search', to: 'glossary#search'
   get '/circa', to: 'glossary#circa'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
   delete '/logout', to: 'session#destroy'
+  get '/gestion', to: 'admin#index'
 
   get '/lessicu', to: 'lessicu#cor'
   get '/lexique', to: 'lessicu#fr'

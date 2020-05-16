@@ -1,29 +1,26 @@
-.accueil nav {
+
+.gestion_lexique {
+    border: 1px solid #00cccc;
+    padding: 20px;
     display: flex;
     align-items: center;
+    width: 50%;
+    h1 {
+        font-size: 25px;
+        margin-right: 10px;
+    }
+    margin: 10px;
 }
 
-.accueil nav a {
-    text-decoration-style: none;
-    color: white;
-    border-right: 1px solid white;
-    padding-right: 15px;
-    padding-left: 15px;
-    font-family: 'BellGothic Black';
-    height: 50px;
-    vertical-align: middle;
-}
-
-.accueil nav a:last-child {
-    border: none;
-}
-
-.accueil nav a:hover {
-    text-decoration: none;
-    color: #00cccc;
-}
-
-.admin_options {
+.gestion_blog {
+    border: 1px solid #f17114;
+    padding: 20px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    width: 50%;
+    h1 {
+        font-size: 25px;
+        margin-right: 10px;
+    }
+    margin: 10px;
 }

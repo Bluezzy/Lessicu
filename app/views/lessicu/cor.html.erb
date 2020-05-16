@@ -1,5 +1,24 @@
+<main class="glossary_container">
+  <%= render 'layouts/flash' %>
 
-<a href='/lexique' class='switch_language' id='français'></a>
+  <% if admin? %>
+      <br />
+      <div class='admin_options'>
+          <%= link_to "Ajouter au lexique", new_word_path, :class => 'btn btn-primary active' %>
+          <%= link_to "Ajouter un thème", new_theme_path, :class =>  'btn btn-primary active' %>
+      </div>
+  <% end %>
 
-<%= render 'layouts/alphabet_corse' %>
-<%= render 'layouts/lessicu' %>
+  <div class='switch_language'>
+    <div class='flags'>
+      <%=image_tag(asset_url("corsican_flag.png"))%>
+      <%= link_to "/lexique" do %>
+        <i class="switch fas fa-exchange-alt"></i> 
+      <% end %>
+      <%=image_tag(asset_url("french-flag.png"))%>
+    </div>
+  </div>
+
+  <%= render 'layouts/alphabet_corse' %>
+  <%= render 'layouts/lessicu' %>
+</main>

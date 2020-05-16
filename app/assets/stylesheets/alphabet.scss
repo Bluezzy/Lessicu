@@ -12,7 +12,7 @@
     justify-content: space-between;
     border-top: 1px solid;
     border-bottom: 1px solid;
-    border-color: #e8e8e8;
+    border-color: #bbbbbb;
     margin: 25px auto;
     height: 35px;
 }
@@ -27,7 +27,7 @@
     color: #bbbbbb;
     text-decoration: none;
     font-family: Optima;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 15px;
 }
 
@@ -37,8 +37,8 @@
 
 .alphabet li a.active {
     color: #f17114;
-    font-weight: 800;
-    font-size: 18px;
+    font-weight: 900;
+    font-size: 20px;
 }
 
 @media (max-width: 655px) {
