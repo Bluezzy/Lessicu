@@ -1,34 +1,31 @@
 header {
-    align-items: center;
     display: flex;
+    align-items: center;
+    font-family: 'Optima';
+    font-size: 16px;
+    font-weight: 500;
     width: 100%;
-    background: #006666;
-    height: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+    background: #006666e8;
+    padding: 10px 30px;
     justify-content: space-between;
     .logo {
-        min-width: 345px;
         display: flex;
         align-items: center;
         margin: 0px;
-        font-family: 'Optima';
-        font-size: 18px;
-        font-weight: 500;
         color: white;
         span {
-            margin-right: 10px;
+            margin-right: 8px;
             white-space: no-wrap;
+            align-self: flex-end;
         }
         span:nth-child(1) {
-            font-size: 25px;
+            font-size: 24px;
         }
-        span:nth-child(4) {
+        span:nth-child(3) {
             margin-right: 0px;
         }
     }
     nav {
-        min-width: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,7 +34,6 @@ header {
             color: white;
             padding-right: 15px;
             padding-left: 15px;
-            font-family: 'BellGothic Black';
             vertical-align: middle;
             &:hover {
                 text-decoration: none;
@@ -53,41 +49,37 @@ header {
 @media (max-width: 655px) {
     header {
         display: grid;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 0;
         align-items: center;
         grid-template-columns: 1fr;
-        grid-template-rows: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 2px;
         grid-template-areas:
         "logo logo"
         "nav nav";
         .logo {
+            position: relative;
+            top: -3px;
             display: flex;
             grid-area: logo;
             justify-content: center;
             font-size: 19px;
-            min-width: 200px;
             overflow: hidden;
             white-space: no-wrap;
             span {
                 overflow: hidden;
                 white-space: no-wrap;
                 margin-right: 8px;
-                span:nth-child(2) {
-                    margin-right: 4px;
-                }
             }
         }
         nav {
+            padding-bottom: 8px;
             width: 100%;
             display: flex;
             grid-area: nav;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            a {
-                margin-bottom: 4px;
-            }
         }
     }
 }

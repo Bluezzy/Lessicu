@@ -4,7 +4,7 @@
     font-family: Optima;
     tr {
         th {
-            color: #f11414;
+            color: #f17114;
             font-weight: bold;
         }
     }
@@ -59,7 +59,7 @@
     justify-content: space-evenly;
 }
 
-@media (max-width: 655px) {
+@media only screen and (max-width: 655px) {
     .select #categurie {
         width: 90%;
     }

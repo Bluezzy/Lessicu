@@ -2,36 +2,35 @@
     <div class='logo'>
         <span style='color:#00cccc'>SCACCHI</span>
         <span>IN</span>
-        <span>LINGUA</span>
-        <span>CORSA</span>
+        <span>CORSU</span>
     </div>
 
     <nav>
         <%= link_to articles_path do %>
-            <i class="fab fa-blogger"></i>
+            <i class="fab fa-blogger fa-2x"></i>
         <% end %>
         <%= link_to lessicu_path do %>
-            <i class="fas fa-book"></i>
+            <i class="fas fa-book fa-2x"></i>
         <% end %>
 
         <% if logged_in? %>
             <%= link_to user_path(current_user) do %>
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user fa-2x"></i>
             <% end %>
             <% if admin? %>
                 <%= link_to '/gestion' do %>
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-tools fa-2x"></i>
                 <% end %>
                 <%= link_to users_path do %>
-                    <i class="fas fa-users-cog"></i>
+                    <i class="fas fa-users-cog fa-2x"></i>
                 <% end %>
             <% end %>
             <%= link_to logout_path, authenticity_token: true, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i>
+                <i class="fas fa-sign-out-alt fa-2x"></i>
             <% end %>
         <% else %>
             <%= link_to login_path do %>
-                <i class="fas fa-sign-in-alt"></i>
+                <i class="fas fa-sign-in-alt fa-2x"></i>
             <% end %>
         <% end %>
     </nav>

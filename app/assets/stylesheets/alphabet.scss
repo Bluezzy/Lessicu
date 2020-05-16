@@ -32,25 +32,40 @@
 }
 
 .alphabet li a:hover {
-    color: #006666;
-    font-weight: bold;
+    color: #f17114;
 }
 
 .alphabet li a.active {
-    color: #f11414;
+    color: #f17114;
     font-weight: 800;
     font-size: 18px;
 }
 
 @media (max-width: 655px) {
+    .alphabet_wrapper {
+        display: block;
+        white-space: no-wrap;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
     .alphabet {
         height: 30px;
-        width: 90%;
-    }
-    .alphabet li a {
-        font-size: 14px;
-    }
-    .alphabet li a.active {
-        font-size: 15px;
+        width: 100%;
+        overflow-x: scroll;
+        position: relative;
+        li {
+            display: block;
+            padding: 0px 8px;
+            margin: auto;
+            a {
+                display: inline-block;
+                font-size: 14px;
+                &:active {
+                    font-size: 15px;
+                }
+            }
+        }
     }
 }
