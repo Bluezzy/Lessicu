@@ -21,8 +21,6 @@ $special-gray: #e9eae9;
   "articles categories";
 
   .articles {
-    height: auto;
-    overflow-y: scroll;
     display: grid;
     grid-area: articles;
     grid-row-gap: 25px;

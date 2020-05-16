@@ -47,13 +47,12 @@
         white-space: no-wrap;
         position: relative;
         width: 100%;
-        overflow: hidden;
+        overflow-x: scroll;
     }
 
     .alphabet {
         height: 30px;
         width: 100%;
-        overflow-x: scroll;
         position: relative;
         li {
             display: block;
