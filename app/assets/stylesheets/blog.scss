@@ -21,6 +21,8 @@ $special-gray: #e9eae9;
   "articles categories";
 
   .articles {
+    height: auto;
+    overflow-y: scroll;
     display: grid;
     grid-area: articles;
     grid-row-gap: 25px;
@@ -104,8 +106,8 @@ $special-gray: #e9eae9;
   }
 
   .categories {
+    height: 100%;
     position: relative;
-    top: 37px;
     overflow: hidden;
     background: white;
     list-style-type: none;
@@ -113,14 +115,13 @@ $special-gray: #e9eae9;
     margin: 0;
     border-top: 10px solid #f17114;
     .category_item {
-      text-align: center;
-      margin: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ececec;
       a {
-        color: #003333;
+        color: #bfbfbf;
         font-size: 14px;
         &:hover {
           text-decoration: none;
-          color: #00CCCC;
         }
       }
     }
