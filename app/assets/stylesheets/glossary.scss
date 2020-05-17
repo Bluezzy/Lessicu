@@ -11,7 +11,7 @@
         align-items: center;
         img {
             margin: 5px;
-            height: 60px;
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
@@ -20,6 +20,10 @@
             color: #bbbbbb;
             &:hover {
                 color: #f17114;
+            }
+            margin: 10px;
+            .fa-2px {
+                height: 40px;
             }
         }
     }
