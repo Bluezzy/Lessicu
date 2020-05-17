@@ -6,7 +6,6 @@ ruby '>= 2.5.1'
 gem 'rails', '~> 6.0.0'
 gem 'bourbon'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
-gem 'ruby-vips', '~> 2.0', '>= 2.0.17'
 gem 'image_processing'
 gem "rack", ">= 2.0.8"
 gem 'font_awesome5_rails'

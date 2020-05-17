@@ -305,7 +305,6 @@ DEPENDENCIES
   rack (>= 2.0.8)
   rails (~> 6.0.0)
   rails-i18n
-  ruby-vips (~> 2.0, >= 2.0.17)
   sass-rails (~> 5)
   selenium-webdriver
   spring
