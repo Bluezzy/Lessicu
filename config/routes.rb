@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
-
   root 'lessicu#cor'
 
   get '/search', to: 'glossary#search'

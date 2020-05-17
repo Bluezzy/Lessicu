@@ -8,7 +8,7 @@
   <%= f.text_field :author, :required => 'required' %>
   <%= f.label :heading, "chapeau" %>
   <%= f.text_area :heading, :required => 'required' %>
-  <%= f.text_area :content, :id => 'article_content' %>
+  <%= f.rich_text_area :content %>
   <%= f.label :image, "photo principale" %>
   <%= f.file_field :image, :required => 'required' %>
   <%= f.submit "Créer" %>

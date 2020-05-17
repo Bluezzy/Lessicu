@@ -8,6 +8,8 @@ import "@fortawesome/fontawesome-free/css/all.css"
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("@rails/actiontext")
+require("trix")
 require("channels")
 require('jquery')
 require('custom/editor')
@@ -25,3 +27,6 @@ require('custom/chessboard')
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+require("trix")
+require("@rails/actiontext")
+import "controllers"

@@ -1,5 +1,7 @@
 class Article < ApplicationRecord
-    paginates_per 20
+    include ActionText::Attachable
+    paginates_per 100
+    has_rich_text :content
     belongs_to :category
     has_and_belongs_to_many :themes
     has_many :words, through: :themes

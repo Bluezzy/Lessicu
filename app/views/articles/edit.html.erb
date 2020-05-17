@@ -7,7 +7,7 @@
     <%= f.label :heading, "phrase d'accroche" %>
     <%= f.text_area :heading, :required => 'required' %>
     <%= f.label :content, "contenu" %>
-    <%= f.text_area :content, :id => 'article_content' %>
+    <%= f.rich_text_area :content, :id => 'article_content' %>
     <%= f.label :image, "image d'accroche" %>
     <%= f.file_field :image %>
     <%= f.submit "Modifier" %>

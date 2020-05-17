@@ -1,16 +1,18 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org/gems'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 gem 'bourbon'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'ruby-vips', '~> 2.0', '>= 2.0.17'
+gem 'image_processing'
 gem "rack", ">= 2.0.8"
 gem 'font_awesome5_rails'
 gem "gon"
 gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
-gem 'ckeditor', '~> 5.0'
 gem 'paperclip'
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
 gem 'rails-i18n'
