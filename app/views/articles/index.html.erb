@@ -10,7 +10,7 @@
                     <%= link_to "Voir brouillons", brouillons_path, class: 'btn btn-secondary btn-sm' %>
                 <% end %>
                 <%= button_to "Nouvel Article", new_article_path, method: :get, class: 'btn btn-primary btn-sm' %>
-                <h1><%= @drafts ? 'Brouillons' : 'Articles puliés'%></h1>
+                <h1><%= @drafts ? 'Brouillons' : 'Articles publiés'%></h1>
             <% end %>
             <% @articles.each do |article| %>
                 <%= link_to article_path(article), class: 'read_article' do %>
