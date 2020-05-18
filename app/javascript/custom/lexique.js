@@ -11,6 +11,7 @@ $(document).ready(function () {
     // additional table-filtering based on word themes
     $('#categurie').on('change', function (e) {
         category = this.value;
+        debugger;
         getQueryResults(query, category);
     });
 

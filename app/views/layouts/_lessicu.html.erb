@@ -2,9 +2,9 @@
     <select name="categurie" id="categurie">
         <option selected disabled>Choisir un thème</option>
     <% get_names(Theme).each do |themeName| %>
-        <option value=<%=themeName%>><%=themeName%></option>
+        <option value="<%= themeName %>"><%=themeName%></option>
     <% end %>
-        <option value="tout">Toutes les catégories</option>
+        <option value="tout">Tous les thèmes</option>
     </select>
 </div>
 
