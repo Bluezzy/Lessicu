@@ -1,5 +1,7 @@
-<%= form_with model: @article, local: true, class: 'edit_article_form', url: article_path(@article.id), method: :put  do |f| %>
-    <%= f.select :category, options_for_select(get_names(Category, @article.category.name)) %>
+<%= form_with model: @article, local: true, class: 'article_form', url: article_path(@article.id), method: :put  do |f| %>
+    <div class='select'>
+      <%= f.select :category, options_for_select(get_names(Category, @article.category.name)) %>
+    </div>
     <%= f.label :title, "titre" %>
     <%= f.text_field :title,  :required => 'required' %>
     <%= f.label :author, "auteur" %>

@@ -1,8 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Membres</h1>
-
-<table>
+<h1>Admins</h1>
+<table class='users'>
   <thead>
     <tr>
       <th>Pseudo</th>
@@ -10,14 +7,33 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @users.each do |user| %>
+    <% @admins.each do |admin| %>
+      <tr class='red'>
+        <td><%= admin.name %></td>
+        <td><%= admin.email %></td>
+        <td><%= link_to 'Voir', user_path(admin) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<h1>Membres</h1>
+<table class='users'>
+  <thead>
+  <tr>
+    <th>Pseudo</th>
+    <th>Email</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Voir', user_path(user) %></td>
-        <td><%= link_to 'Supprimer', user_path(user), method: :delete, data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
+        <td><%= member.name %></td>
+        <td><%= member.email %></td>
+        <td><%= link_to 'Voir', user_path(member) %></td>
+        <td><%= link_to 'Supprimer', user_path(member), method: :delete, data: { confirm: 'Êtes-vous sûr(e)?' } %></td>
       </tr>
     <% end %>
   </tbody>

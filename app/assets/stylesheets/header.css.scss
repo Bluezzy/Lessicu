@@ -49,7 +49,7 @@ header {
     }
 }
 
-@media (max-width: 655px) {
+@media only screen and (max-width: 655px) {
     header {
         display: grid;
         padding: 0;

@@ -1,8 +1,8 @@
 
 <%= form_with model: [:admin, @word], local: true, url: word_path(@word.id), method: :put  do |f| %>
-    <%= f.label :name, "mot ou expression" %>
+    <%= f.label :name, "Mot ou expression en français" %>
     <%= f.text_field :name,  :required => 'required' %>
-    <%= f.label :translation, "traduction" %>
+    <%= f.label :translation, "Traduction en corse" %>
     <%= f.text_field :translation, :required => 'required' %>
     <%= f.label :theme, "thème" %>
     <%= f.select :theme, options_for_select(get_names(Theme, @word.theme.name)) %>

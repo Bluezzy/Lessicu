@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   scope :admin do
     get '', to: 'admin#index'
+    get '/brouillons', to: 'articles#drafts'
+    post '/publish', to: 'articles#publish'
     resources :users, except: [:show, :edit, :update]
     resources :words
     resources :themes

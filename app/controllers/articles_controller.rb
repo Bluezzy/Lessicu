@@ -5,14 +5,41 @@ class ArticlesController < ApplicationController
         if params[:category]
             category_name = params[:category]
             category_id = Category.get_id(category_name)
-            @articles = Article.where("category_id = ?", category_id).order(created_at: :desc).page params[:page]
+            @articles = Article.where(published: true)
+                                .where("category_id = ?", category_id)
+                                .order(created_at: :desc)
+                                .page params[:page]
         else
-            @articles = Article.order(created_at: :desc).page params[:page]
+            @articles = Article.where(published: true)
+                               .order(created_at: :desc)
+                               .page params[:page]
         end
     
         @categories = Category.all
+        @drafts = false
         gon.articles = @articles
         gon.categories = @categories
+    end
+
+    def drafts
+        if params[:category]
+            category_name = params[:category]
+            category_id = Category.get_id(category_name)
+            @articles = Article.where(published: false)
+                                .where("category_id = ?", category_id)
+                                .order(created_at: :desc)
+                                .page params[:page]
+        else
+            @articles = Article.where(published: false)
+                               .order(created_at: :desc)
+                               .page params[:page]
+        end
+    
+        @categories = Category.all
+        @drafts = true
+        gon.articles = @articles
+        gon.categories = @categories
+        render 'index'
     end
     
     def show
@@ -23,19 +50,29 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    def publish
+        @article= Article.find(params[:id])
+        permitted = params.require(:article).permit(:published)
+        if @article.update_attributes(permitted)
+            redirect_to articles_path, flash: { success: "Article publié avec succès"}
+        else
+            redirect_to @article, flash: { error: "Une erreur est survenue"}
+        end
+    end
+
     def update
         @article = Article.find(params[:id])
         if @article.update_attributes(article_params)
-            redirect_to articles_path, flash: { success: "Modifié avec succès" }
+            redirect_to article_path(@article), flash: { success: "Modifié avec succès" }
         else
-            redirect_to articles_path,  flash: { error: "Une erreur est survenue"}
+            redirect_to articles_path, flash: { error: "Une erreur est survenue" }
         end
     end
 
     def create
         @article = Article.new(article_params)
         if @article.save
-            redirect_to articles_path, flash: { success: "Ajouté avec succès" }
+            redirect_to article_path(@article), flash: { success: "Ajouté avec succès" }
         else
             redirect_to articles_path, flash: { error: "Une erreur est survenue" }
         end
@@ -54,8 +91,5 @@ class ArticlesController < ApplicationController
         params[:article][:category_id] = Category.get_id(params[:article][:category])
         permitted = params.require(:article).permit(:author, :title, :content, :image, :heading, :category_id)
         permitted
-    end
-
-    def authorized
     end
 end

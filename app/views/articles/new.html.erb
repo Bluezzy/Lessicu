@@ -8,8 +8,9 @@
   <%= f.text_field :author, :required => 'required' %>
   <%= f.label :heading, "chapeau" %>
   <%= f.text_area :heading, :required => 'required' %>
-  <%= f.rich_text_area :content %>
+  <%= f.rich_text_area :content,:required => 'required' %>
   <%= f.label :image, "photo principale" %>
   <%= f.file_field :image, :required => 'required' %>
-  <%= f.submit "Créer" %>
+  <br />
+  <%= f.submit "Sauvegarder", class: 'btn btn-primary' %>
 <% end %>

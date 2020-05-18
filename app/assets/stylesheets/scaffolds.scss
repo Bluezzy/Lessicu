@@ -20,7 +20,7 @@ body
     margin: 0;
     line-height: 1;
     box-sizing: border-box;
-    font-family: 'Roboto', 'Open Sans', 'Optima', 'BellGothic Black', 'Helvetica', 'serif';
+    font-family: 'Roboto', sans-serif;
     min-width: 290px;
 }
 
@@ -29,6 +29,12 @@ html, body
   width: 100%;
 }
 
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -53,6 +59,11 @@ h2 {
   font-size: 25px;
   font-weight: 50px;
   margin: 10px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 40px;
 }
 
 #error_explanation {

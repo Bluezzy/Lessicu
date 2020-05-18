@@ -1,9 +1,13 @@
 <div class='full_article_container'>
     <% if admin? %>
         <div class='admin_article_options'>
-            <%= link_to "Modifier", edit_article_path(@article), :class => 'edit_article' %>
-            <%= button_to "Supprimer", article_path(@article), method: :delete, 
-            :class => 'delete_article', data: { confirm: 'Êtes-vous sûr(e)?' } %>
+            <%= link_to "Modifier", edit_article_path(@article), :class => 'btn btn-warning btn-sm' %>
+            <%= button_to "Supprimer", article_path(@article), method: :delete, :class => 'btn btn-danger btn-sm',
+             data: { confirm: 'Êtes-vous sûr(e)?' } %>
+            <% unless @article.published %>
+                <%= button_to "Publier", publish_path, 
+                :params => {:article => {:published => true}, :id => @article.id}, method: :post, :class => 'btn btn-primary' %>
+            <% end %>
         </div> 
     <% end %>
 

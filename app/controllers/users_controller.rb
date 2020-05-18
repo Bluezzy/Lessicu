@@ -8,6 +8,8 @@ class UsersController < AdminController
   # GET /users.json
   def index
     @users = User.all
+    @admins = User.where(admin: true)
+    @members = User.where(admin: false)
   end
 
   # GET /users/1

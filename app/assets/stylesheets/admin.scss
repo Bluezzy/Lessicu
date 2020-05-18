@@ -1,26 +1,26 @@
-
-.gestion_lexique {
-    border: 1px solid #00cccc;
+.gestion {
     padding: 20px;
     display: flex;
     align-items: center;
     width: 50%;
+    min-width: 450px;
     h1 {
         font-size: 25px;
         margin-right: 10px;
     }
     margin: 10px;
 }
-
+    
+.gestion_lexique {
+    border: 1px solid #00cccc;     
+}
 .gestion_blog {
     border: 1px solid #f17114;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    width: 50%;
-    h1 {
-        font-size: 25px;
-        margin-right: 10px;
+}
+
+.published_false {
+    opacity: 80%;
+    .title {
+        color: gray !important;
     }
-    margin: 10px;
 }
