@@ -1,17 +1,19 @@
 module TimeHelper
-    def current_year?(date, current_time = Time.now)
+    NOW = Time.zone.now
+
+    def current_year?(date, current_time = NOW)
         date.year == current_time.year
     end
 
-    def current_month?(date, current_time = Time.now)
+    def current_month?(date, current_time = NOW)
         current_year?(date, current_time) && date.month == current_time.month
     end
 
-    def current_day?(date, current_time = Time.now)
+    def current_day?(date, current_time = NOW)
         current_month?(date, current_time) && date.day == current_time.day
     end
 
-    def previous_day?(date, current_time = Time.now)
+    def previous_day?(date, current_time = NOW)
         (date + 1.day).day == current_time.day &&
         (current_month?(date, current_time) || last_day_of_month?(date))
     end
@@ -21,7 +23,7 @@ module TimeHelper
         date.month != next_day.month
     end
 
-    def format_date(date, current_time = Time.now, initialString = 'le ', separator = ' ')
+    def format_date(date, current_time = NOW, initialString = 'le ', separator = ' ')
         jour = format_day(date.day)
         mois = format_month(date.month)
         annee = format_year(date.year)

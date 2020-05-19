@@ -52,7 +52,8 @@ class ArticlesController < ApplicationController
 
     def publish
         @article= Article.find(params[:id])
-        permitted = params.require(:article).permit(:published)
+        @article.created_at = Time.zone.now
+        permitted = params.require(:article).permit(:published, :created_at)
         if @article.update_attributes(permitted)
             redirect_to articles_path, flash: { success: "Article publié avec succès"}
         else
