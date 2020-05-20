@@ -11,7 +11,6 @@ $(document).ready(function () {
     // additional table-filtering based on word themes
     $('#categurie').on('change', function (e) {
         category = this.value;
-        debugger;
         getQueryResults(query, category);
     });
 
@@ -49,6 +48,8 @@ function displayOnlyQueryData(data) {
     });
     if (data.length === 0) {
         $("#glossary").after('<div class="no_result"><p><em><strong>Pas de résultat</em></strong></p></div>');
+    } else {
+        stripeEvenRows();
     }
 }
 
@@ -97,4 +98,10 @@ function handleAdminElements() {
     } else {
         $('.titres').append('<th></th><th></th>')
     }
+}
+
+function stripeEvenRows() {
+    $("tr:visible").each(function (index) {
+        $(this).css("background-color", !!(index + 1 & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+    });
 }
