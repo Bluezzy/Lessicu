@@ -1,7 +1,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: marcandria
+  username: marcandria
+  database: scacchi
+  password: frousht
   host: localhost
   pool: 5
 

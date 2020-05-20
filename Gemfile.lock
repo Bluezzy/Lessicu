@@ -98,6 +98,13 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     climate_control (0.2.0)
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     erubi (1.9.0)
@@ -240,6 +247,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    social-share-button (1.2.3)
+      coffee-rails
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -292,7 +301,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   font_awesome5_rails
   gon
-  image_processing
+  image_processing (~> 1.11)
   jbuilder (~> 2.7)
   jquery-rails
   kaminari
@@ -307,6 +316,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (~> 5)
   selenium-webdriver
+  social-share-button (~> 1.2, >= 1.2.3)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
