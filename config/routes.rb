@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   get '/lexique', to: 'lessicu#fr'
 
   resources :articles
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :destroy]
 
   scope :admin do
     get '', to: 'admin#index'
     get '/brouillons', to: 'articles#drafts'
     post '/publish', to: 'articles#publish'
-    resources :users, except: [:show, :edit, :update]
+    resources :users, except: [:show, :edit, :update, :destroy]
     resources :words
     resources :themes
     resources :categories
