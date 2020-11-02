@@ -14,4 +14,8 @@ class Article < ApplicationRecord
         other_category_id = Category.find_by(name: "autre").id
         Article.where(category_id: deleted_category_id).update_all(category_id: other_category_id)
     end
+
+    def formatted_body
+        Htmlblock.render(self.content.to_s).html_safe
+    end
 end
