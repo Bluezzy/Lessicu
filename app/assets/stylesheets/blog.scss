@@ -186,6 +186,9 @@ $special-gray: #f5f5f5;
           font-weight: normal;
         }
       }
+      .advanced-code-block {
+        overflow: scroll;
+      }
     }
   }
 }
