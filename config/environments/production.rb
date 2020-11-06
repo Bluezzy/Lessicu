@@ -4,6 +4,9 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  # Force https for all requests
+  config.force_ssl = true
+
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
 
