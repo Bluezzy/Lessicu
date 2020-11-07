@@ -26,7 +26,7 @@ header {
         }
     }
     nav {
-        overflow-x: scroll;
+        overflow-x: auto;
         flex-wrap: nowrap;
         font-size: 25px;
         display: flex;
@@ -84,7 +84,7 @@ header {
             align-items: center;
             justify-content: space-evenly;
             flex-wrap: nowrap;
-            overflow-x: scroll;
+            overflow-x: auto;
         }
     }
 }
