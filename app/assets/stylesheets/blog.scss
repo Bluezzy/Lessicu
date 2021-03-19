@@ -224,7 +224,7 @@ $special-gray: #f5f5f5;
   }
 }
 
-@media only screen and (max-width: 655px) {
+@media only screen and (max-width: 900px) {
   .blog {
     padding: 20px;
     grid-template-columns: 1fr;
@@ -246,7 +246,7 @@ $special-gray: #f5f5f5;
   }
 }
 
-@media only screen and (min-width: 910px) {
+@media only screen and (min-width: 900px) {
   .blog {
     display: flex;
     justify-content: space-evenly;
