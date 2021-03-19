@@ -7,7 +7,6 @@ $special-gray: #f5f5f5;
 }
 
 .blog {
-  word-break: break-all;
   max-width: 1000px;
   overflow: hidden;
   padding: 40px 30px;
@@ -22,6 +21,7 @@ $special-gray: #f5f5f5;
 
   .articles {
     display: grid;
+    overflow: hidden;
     grid-area: articles;
     grid-row-gap: 25px;
     width: 100%;
