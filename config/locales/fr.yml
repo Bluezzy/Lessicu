@@ -1,11 +1,11 @@
 fr:
   views:
     pagination:
-      first: "Prima"
-      last: "Ultima"
-      previous: "Antecedente"
-      next: "Seguente"
-      truncate: "..."
+      first: "&laquo; Prima"
+      last: "Ultima &raquo;"
+      previous: "&lsaquo; Antecedente"
+      next: "Seguente &rsaquo;"
+      truncate: "&hellip;"
   helpers:
     page_entries_info:
       one_page:
