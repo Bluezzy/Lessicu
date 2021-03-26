@@ -9,7 +9,7 @@ gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'image_processing', '~> 1.11'
 gem "rack", ">= 2.0.8"
 gem 'font_awesome5_rails'
-gem 'social-share-button', '~> 1.2', '>= 1.2.3'
+gem 'social-share-button', '~> 1.0'
 gem "gon"
 gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'

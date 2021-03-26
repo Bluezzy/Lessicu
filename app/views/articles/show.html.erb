@@ -1,3 +1,5 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v10.0&appId=138592226931182&autoLogAppEvents=1" nonce="4QhvdGxA"></script>
 <%= render 'layouts/flash' %>
 <div class='full_article_container'>
     <% if admin? %>
@@ -29,5 +31,6 @@
             <%= @article.formatted_body %>
         </div>
         <%= link_to (content_tag(:i, nil, class: "fas fa-angle-double-left fa-2x")), articles_path %>
+        <%= social_share_button_tag(@article.title, :image => @article.image) %>
     </div>
 </div>
