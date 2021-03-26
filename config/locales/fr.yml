@@ -3,7 +3,7 @@ fr:
     pagination:
       first: "&laquo; Prima"
       last: "Ultima &raquo;"
-      previous: "&lsaquo; Antecedente"
+      previous: "&lsaquo; Precedente"
       next: "Seguente &rsaquo;"
       truncate: "&hellip;"
   helpers:
