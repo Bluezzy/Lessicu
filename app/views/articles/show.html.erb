@@ -33,6 +33,6 @@
         <%= link_to (content_tag(:i, nil, class: "fas fa-angle-double-left fa-2x")), articles_path %>
     </div>
     <nav class='social-share'>
-        <%= social_share_button_tag(@article.title, 'data-facebook-title' => @article.title, :image => @article.image) %>
+        <%= social_share_button_tag(@article.title, 'data-facebook-title' => @article.title, 'data-linkedin-title' => @article.title, :image => @article.image, :desc => @article.title) %>
     </nav>
 </div>
