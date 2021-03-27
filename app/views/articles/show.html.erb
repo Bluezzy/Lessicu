@@ -31,6 +31,9 @@
             <%= @article.formatted_body %>
         </div>
         <%= link_to (content_tag(:i, nil, class: "fas fa-angle-double-left fa-2x")), articles_path %>
-        <%= social_share_button_tag(@article.title, :image => @article.image) %>
     </div>
+    <nav class='social-share'>
+        <%= social_share_button_tag(@article.title, :image => @article.image, desc: @article.title, :allow_sites => %w(twitter linkedin)) %>
+        <%= social_share_button_tag(@article.title,  :url => article_path(@article), :image => @article.image, desc: @article.title, :allow_sites => %w(facebook)) %>
+    </nav>
 </div>
