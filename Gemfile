@@ -10,6 +10,7 @@ gem 'image_processing', '~> 1.11'
 gem "rack", ">= 2.0.8"
 gem 'font_awesome5_rails'
 gem 'social-share-button', '~> 1.2', '>= 1.2.3'
+gem 'shareable'
 gem "gon"
 gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
