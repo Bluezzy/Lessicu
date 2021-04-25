@@ -1,4 +1,20 @@
 fr:
+  views:
+    pagination:
+      first: "&laquo; Prima"
+      last: "Ultima &raquo;"
+      previous: "&lsaquo; Precedente"
+      next: "Seguente &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
   admin:
     js:
       true: True
@@ -23,8 +39,8 @@ fr:
     home:
       name: "Casa"
     pagination:
-      previous: "&laquo; Prev"
-      next: "Next &raquo;"
+      previous: "&laquo; Précédent"
+      next: "Suivant &raquo;"
       truncate: "…"
     misc:
       search: "Chercher"

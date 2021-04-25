@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'lessicu#cor'
+  root 'articles#index'
 
   get '/search', to: 'glossary#search'
   get '/circa', to: 'glossary#circa'
